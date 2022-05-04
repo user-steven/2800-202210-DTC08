@@ -1,0 +1,6 @@
+/* Application Wide Styles */
+* {
+    margin: 0;
+    padding: 0;
+    /* some font family would go here too */
+  }

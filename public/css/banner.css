@@ -12,11 +12,7 @@
     justify-content: center;
 }
 
-.mySlides {
-    display: none;
-    padding: 2px;
-    border: solid black 1px;
-}
+.mySlides {display: none}
 
 .mySlides:first-child {display: block;}
 
@@ -25,7 +21,7 @@ img {vertical-align: middle;}
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
-  
+  position: relative;
   margin: auto;
   height: 100%;
 }

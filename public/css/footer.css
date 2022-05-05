@@ -2,5 +2,14 @@ footer {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    background-color: #C4C4C4;
+  }
+
+  footer button {
+    background-color: transparent;
+    padding: 3px;
+    border-radius: 15px;
+    box-shadow: none;
+    margin-top: 10px;
   }

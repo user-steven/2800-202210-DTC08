@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
+
+    <!-- JQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- LOAD Navigation, Header and Footer -->
+    <script src="./js/template.js"></script>
+
     <script src="js/login.js"></script>
 
     <link rel="stylesheet" href="css/template.css">
@@ -15,7 +22,24 @@
 </head>
 
 <body>
+    <header id="header"></header>
 
+    <nav id="navigation"></nav>
+
+    <h1>Conflict Tracker</h1>
+    <form action="" method="get" id="loginForm">
+        <input type="email" name="loginEmail" id="loginEmail" placeholder="Email" required>
+        <input type="password" name="loginPass" id="loginPass" placeholder="Password" required>
+    </form>
+
+    <div class="loginSignUpButtons">
+        <button type="submit" form="loginForm" id="loginButton">Login</button>
+        <form action="" id="signUpButton">
+            <input type="submit" value="Sign Up"/>
+        </form>
+    </div>
+
+    <footer id="footer"></footer>
 </body>
 
 </html>

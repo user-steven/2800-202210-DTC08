@@ -1,0 +1,13 @@
+/* Application Wide Styles */
+* {
+    margin: 0;
+    padding: 0;
+    /* some font family would go here too */
+  }
+
+  body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }

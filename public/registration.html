@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- JQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- LOAD Navigation, Header and Footer -->
+    <script src="./js/template.js"></script>
+    <script src="./js/registration.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header id="header"></header>
+    <nav id="navigation"></nav>
+    <h1>Register</h1>
+    <form action="" method="POST">
+        <div>
+            <label for="firstNameRegister">First Name:</label>
+            <input type="text" name="firstName" id="firstNameRegister">
+        </div>
+
+        <div>
+            <label for="lastNameRegister">Last Name:</label>
+            <input type="text" name="lastName" id="lastNameRegister">
+        </div>
+
+        <div>
+            <label for="emailRegister">Email:</label>
+            <input type="email" name="email" id="emailRegister">
+        </div>
+
+        <div>
+            <label for="passwordRegister">Password:</label>
+            <input type="password" name="password" id="passwordRegister">
+        </div>
+
+        <div>
+            <label for="confirmPasswordRegister">Confirm Password:</label>
+            <input type="password" name="confirmPassword" id="confirmPasswordRegister">
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    <footer id="footer"></footer>
+</body>
+
+</html>

@@ -42,9 +42,6 @@ app.post("/", (req, res) => {
 })
 
 app.get("/login", (req, res) => {
-<<<<<<< HEAD
-    res.sendFile(__dirname + "/public/login.html")
-=======
     if (req.session.authenticated) {
         res.redirect("/")
         console.log("already have a session");
@@ -60,5 +57,4 @@ app.get("/signup", (req, res) => {
     } else {
         res.sendFile(__dirname + "/public/registration.html")
     }
->>>>>>> Nicholas_Implement_Sessions
 })

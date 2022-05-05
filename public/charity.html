@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity</title>
+
+    <!-- JQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/charity.js"></script>
+
+    <!-- LOAD Navigation, Header and Footer -->
+    <script src="./js/template.js"></script>
+</head>
+
+<body>
+    <h1>Charity links</h1>
+    <nav id="navigation"></nav>
+
+    <main>
+        <div id="charitySearchBar">
+            <label for="charitySearch">Search for charities:</label>
+            <select id="charityCategories">
+                <option value="1">Animals</option>
+                <option value="2">Arts, Culture, Humanities</option>
+                <option value="10">Community Development</option>
+                <option value="3">Education</option>
+                <option value="4">Environment</option>
+                <option value="5">Health</option>
+                <option value="6">Human Services</option>
+                <option value="8">Human and Civil Rights</option>
+                <option value="7">International</option>
+                <option value="9">Religion</option>
+                <option value="11">Research and Public Policy</option>
+            </select>
+            <input type="text" id="searchTerm"placeholder="Ethiopia">
+            <button type="submit" id="searchCharityButton">Search</button>
+        </div>
+
+        <ol id="charityList"></ol>
+    </main>
+
+    <footer id="footer"></footer>
+
+</body>
+
+</html>

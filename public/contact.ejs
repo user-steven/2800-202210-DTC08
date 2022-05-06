@@ -12,10 +12,26 @@
     <link rel="stylesheet" href="css/template/banner.css">
     <link rel="stylesheet" href="css/template/header.css">
     <link rel="stylesheet" href="css/template/footer.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 
 <body>
-
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
+    <main>
+        <form action="">
+            <input type="text" name="nameField" id="" placeholder="Your Name">
+            <textarea name="message" id="messageField" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" name="submit" id="">
+        </form>
+    </main>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
 </body>
 
 </html>

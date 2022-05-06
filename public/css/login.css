@@ -7,6 +7,11 @@ main {
     flex-direction: column;
 }
 
+#banner {
+    position: relative;
+    top: -20px;
+}
+
 #loginForm {
     display: flex;
     flex-direction: column;

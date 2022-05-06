@@ -72,8 +72,8 @@ app.post("/create_user", function (req, res) {
     registerInfo = req.body
     registerInfo["admin"] = false
     user_data.push(registerInfo)
-    // console.log(registerInfo)
-    // console.log(user_data)
+    console.log(registerInfo)
+    console.log(user_data)
     console.log("Registered")
     return res.redirect("/login")
 })

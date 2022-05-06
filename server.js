@@ -3,6 +3,8 @@ const app = express()
 
 const session = require("express-session")
 
+app.set("view engine", "ejs")
+
 const bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({
   extended: true
@@ -28,15 +30,19 @@ var user_data = [{email: 'admin@bcit.ca', password: 'bcit', admin: true}]
 app.use(express.static("./public"))
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname+ "/public/index.html")
+    res.render(__dirname+ "/public/index.ejs")
 })
 
 app.post("/", (req, res) => {
-    if (users[req.body.loginEmail] == req.body.loginPass) {
+    if (req.body.logOut) {
+        req.session.authenticated = false
+        req.session.user = undefined
+        res.render(__dirname+ "/public/index.ejs")
+    } else if (users[req.body.loginEmail] == req.body.loginPass) {
         req.session.authenticated = true;
         req.session.user = req.body.loginEmail
         console.log("login sucessful");
-        res.sendFile(__dirname+ "/public/index.html")
+        res.render(__dirname+ "/public/index.ejs")
     } else {
         console.log("wrong credentials");
         res.redirect("/login")
@@ -48,7 +54,7 @@ app.get("/login", (req, res) => {
         res.redirect("/")
         console.log("already have a session");
     } else {
-        res.sendFile(__dirname + "/public/login.html")
+        res.render(__dirname + "/public/login.ejs")
     } 
 })
 
@@ -57,7 +63,7 @@ app.get("/signup", (req, res) => {
         res.redirect("/")
         console.log("already signed up");
     } else {
-        res.sendFile(__dirname + "/public/registration.html")
+        res.render(__dirname + "/public/registration.ejs")
     }
 })
 

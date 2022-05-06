@@ -3,6 +3,8 @@ const app = express()
 
 const session = require("express-session")
 
+app.set("view engine", "ejs")
+
 const bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({
   extended: true
@@ -26,19 +28,19 @@ const users = {
 app.use(express.static("./public"))
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname+ "/public/index.html")
+    res.render(__dirname+ "/public/index.ejs")
 })
 
 app.post("/", (req, res) => {
     if (req.body.logOut) {
         req.session.authenticated = false
         req.session.user = undefined
-        res.sendFile(__dirname+ "/public/index.html")
+        res.render(__dirname+ "/public/index.ejs")
     } else if (users[req.body.loginEmail] == req.body.loginPass) {
         req.session.authenticated = true;
         req.session.user = req.body.loginEmail
         console.log("login sucessful");
-        res.sendFile(__dirname+ "/public/index.html")
+        res.render(__dirname+ "/public/index.ejs")
     } else {
         console.log("wrong credentials");
         res.redirect("/login")

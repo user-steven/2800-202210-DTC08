@@ -88,7 +88,9 @@ app.get("/signup", (req, res) => {
 
 app.get("/userAccounts", (req, res) => {
   // if user is admin
-  res.render(__dirname + "/public/account.ejs");
+  res.render(__dirname + "/public/account.ejs", {
+      user_data : user_data
+  });
   // else 404 not found
 });
 

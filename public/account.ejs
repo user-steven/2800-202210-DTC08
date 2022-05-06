@@ -19,6 +19,16 @@
         <%- include("./template/header") %>
     </header>
     <h2>User Accounts</h2>
+    <ul>
+        <% user_data.forEach((user) => { %>
+            <li>
+                <%= user.email %> 
+                <% if (user.admin) { %>
+                    (admin)
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
     <footer>
         <%- include("./template/footer") %>
     </footer>

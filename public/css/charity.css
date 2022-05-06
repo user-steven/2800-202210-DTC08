@@ -1,0 +1,22 @@
+#charitySearchBar {
+    display: flex;
+    justify-content: center;
+}
+
+#charitySearchBar * {
+    margin: 10px;
+}
+
+main input, main button {
+    background-color: #C4C4C4;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    width: 70%;
+    max-width: 300px;
+}
+
+select {
+    border-radius: 15px;
+}

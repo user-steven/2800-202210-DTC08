@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+
+    <script defer src="js/login.js"></script>
+    <script defer src="js/banner.js"></script>
+
+    <link rel="stylesheet" href="css/template/template.css">
+    <link rel="stylesheet" href="css/template/banner.css">
+    <link rel="stylesheet" href="css/template/header.css">
+    <link rel="stylesheet" href="css/template/footer.css">
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
+
+    <main>
+        <h1>Conflict Tracker</h1>
+        <br>
+        <form action="/" method="post" id="loginForm">
+            <input type="email" name="loginEmail" id="loginEmail" placeholder="Email" required>
+            <input type="password" name="loginPass" id="loginPass" placeholder="Password" required>
+        </form>
+
+        <div class="loginSignUpButtons">
+            <div><button type="submit" form="loginForm" id="loginButton">Login</button></div>
+            <form action="/signup" method="get" id="signUpButton">
+                <input type="submit" value="Sign Up"/>
+            </form>
+        </div>
+    </main>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
+</body>
+
+</html>

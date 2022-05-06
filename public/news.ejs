@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>news</title>
+
+    <script defer src="\js/banner.js"></script>
+
+    <link rel="stylesheet" href="css/template/banner.css">
+    <link rel="stylesheet" href="css/template/header.css">
+    <link rel="stylesheet" href="css/template/footer.css">
+    <link rel="stylesheet" href="css/template/template.css">
+    <link rel="stylesheet" href="css/news.css">
+</head>
+
+<body>
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
+
+    <main>
+        <button>Back to Main Page</button>
+    
+        <h1>Conflicts in the XXXX Area</h1>
+            <div class="area_map">
+                <img src="random.jpg" alt="">
+            </div>
+            <hr>
+            <div class="background">
+                <br>
+                <h2>Backgound</h2>
+                <br>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, incidunt nam voluptate dolor maiores
+                    quam
+                    ratione tenetur in suscipit ipsam facere eligendi laborum. Ducimus ratione reiciendis exercitationem
+                    architecto accusantium voluptatem rem minus impedit dolorem debitis! Vero esse nihil quisquam
+                    consequuntur
+                    eos perspiciatis, quaerat autem porro quas officia optio, ex doloribus culpa quibusdam cumque quasi nemo
+                    libero sed nostrum! Enim, voluptate vel. Minima, a laboriosam pariatur officia fugit, dolorum voluptas
+                    obcaecati consequuntur molestias quia officiis deleniti itaque? Exercitationem, eveniet. Soluta incidunt
+                    consequuntur ipsam inventore eveniet nulla harum repellendus laboriosam tenetur quas. Labore accusantium
+                    repellendus quam saepe debitis harum, perferendis praesentium sed.
+                </p>
+                <br>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quae odio animi. Nihil necessitatibus
+                    voluptatem aliquam ea molestias tenetur, repellat delectus, modi nesciunt eaque pariatur quas nemo sed?
+                    Amet, enim?
+                </p>
+            </div>
+            <br>
+            <button>Save as favorite</button>
+            <hr>
+            <br>
+            <h3>Related News</h3>
+            <div id="relatedNewsContainer">
+                <div class="news_cards_1">
+                    <div class="container">
+                        <h4><b>News Article Name</b></h4>
+                        <p><a href=""><i>News Source</i></a></p>
+                    </div>
+                </div>
+                <div class="news_cards_2">
+                    <div class="container">
+                        <h4><b>News Article Name</b></h4>
+                        <p><a href=""><i>News Source</i></a></p>
+                    </div>
+                </div>
+                <div class="news_cards_3">
+                    <div class="container">
+                        <h4><b>News Article Name</b></h4>
+                        <p><a href=""><i>News Source</i></a></p>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
+</body>
+
+</html>

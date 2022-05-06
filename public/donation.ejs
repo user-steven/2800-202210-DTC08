@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation History</title>
+    <script defer src="\js/banner.js"></script>
+    <link rel="stylesheet" href="css/template/template.css">
+    <link rel="stylesheet" href="css/template/banner.css">
+    <link rel="stylesheet" href="css/template/header.css">
+    <link rel="stylesheet" href="css/template/footer.css">
+    <link rel="stylesheet" href="css/donation.css">
+</head>
+
+<body>
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
+    
+    <main>
+        <h1>Donation History</h1>
+        <div class="search_container">
+            <input type="text" placeholder="Search by Charity Name">
+            <button><img src="\..\images\search_icon.png" alt="Search"></button>
+        </div>
+        <!-- Drop down menu for choosing display size -->
+        <div id="dropDownContainer">
+            <label for="donation_size_select">Show Results</label>
+            <select name="donation_size_select" id="donation_size_select">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Charity Name</th>
+                <th>Amount</th>
+                <th>Receipt</th>
+            </tr>
+            <tr>
+                <td>5/5/2022</td>
+                <td><a href="">Ukrainian RedCross</a></td>
+                <td>$300.00</td>
+                <td><a href="">PDF</a></td>
+            </tr>
+            <tr id="donation table">
+                <td id="donation_date"></td>
+                <td id="charity_name"></td>
+                <td id="donation_amount"></td>
+                <td id="donation_receipt"></td>
+
+            </tr>
+        </table>
+        <br>
+        <div class="pagination">
+            <a href="#">Previous</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">Next</a>
+        </div>
+    </main>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
+</body>
+
+</html>

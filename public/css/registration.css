@@ -1,0 +1,30 @@
+#banner {
+    position: relative;
+    top: -60px;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+main form input {
+    background-color: #C4C4C4;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    width: 70%;
+    max-width: 300px;
+}
+
+main form button {
+    width: 100px;
+    background-color: #C4C4C4;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}

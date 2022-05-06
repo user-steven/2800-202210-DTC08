@@ -1,0 +1,38 @@
+main {
+    align-items: center;
+}
+
+main .search_container {
+    border: #C4C4C4 solid 2px;
+}
+
+#dropDownContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#dropDownContainer label, #dropDownContainer select {
+    margin: 10px;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #7d92d6;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}

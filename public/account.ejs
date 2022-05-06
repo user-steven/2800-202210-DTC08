@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <script defer src="js/account.js"></script>
+
+    <link rel="stylesheet" href="css/template/template.css">
+    <link rel="stylesheet" href="css/template/banner.css">
+    <link rel="stylesheet" href="css/template/header.css">
+    <link rel="stylesheet" href="css/template/footer.css">
+    <link rel="stylesheet" href="css/accounts.css">
+</head>
+
+<body>
+    <header>
+        <%- include("./template/header") %>
+    </header>
+    <h1>User Accounts</h1>
+    <ul>
+        <% user_data.forEach((user) => { %>
+            <li>
+                <%= user.email %> 
+                <% if (user.admin) { %>
+                    (admin)
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+    <footer>
+        <%- include("./template/footer") %>
+    </footer>
+</body>
+
+</html>

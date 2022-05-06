@@ -67,6 +67,11 @@ app.get("/signup", (req, res) => {
     }
 })
 
+app.get("/userAccounts", (req, res) => {
+    // if user is admin
+    res.render(__dirname + "/public/account.ejs")
+    // else 404 not found
+})
 
 app.post("/create_user", function (req, res) {
     registerInfo = req.body

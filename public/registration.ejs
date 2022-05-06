@@ -5,13 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register</title>
-        <!-- JQuery Library -->
-        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <script defer src="./js/banner.js"></script>
         <script defer src="./js/registration.js"></script>
-        <script defer src="./js/template.js"></script>
-        <!-- LOAD Navigation, Header and Footer -->
+
         <link rel="stylesheet" href="css/template/template.css">
         <link rel="stylesheet" href="css/template/header.css">
         <link rel="stylesheet" href="css/template/footer.css">
@@ -19,14 +16,20 @@
         <link rel="stylesheet" href="css/registration.css">
     </head>
     <body>
-        <header id="header"></header>
-        <div id="banner"></div>
+        <header id="header">
+            <%- include("./template/header") %>
+        </header>
+        <div id="banner">
+            <%- include("./template/banner") %>
+        </div>
         <h1>Register</h1>
         <form id="registerForm" action="/create_user" method="POST">
             <input type="email" name="email" id="emailRegister" placeholder="enter email">
             <input type="password" name="password" id="passwordRegister" placeholder="enter password">
             <button type="submit" id="registerButton">Register</button>
         </form>
-        <footer id="footer"></footer>
+        <footer id="footer">
+            <%- include("./template/footer") %>
+        </footer>
     </body>
 </html>

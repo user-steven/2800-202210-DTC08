@@ -7,15 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conflict Tracker</title>
 
-    <!-- JQuery Library -->
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script defer src="js/index.js"></script>
-
     <script defer src="js/banner.js"></script>
-
-    <!-- LOAD Header and Footer -->
-    <script defer src="./js/template.js"></script>
     
     <!-- LOAD Stylesheets -->
     <link rel="stylesheet" href="css/template/template.css">
@@ -25,8 +18,12 @@
 </head>
 
 <body>
-    <header id="header"></header>
-    <div id="banner"></div>
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
     
     <main>
         <h2>Section Heading</h2>
@@ -76,7 +73,9 @@
         <br>
     </main>
 
-    <footer id="footer"></footer>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
 
 </body>
 

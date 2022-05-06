@@ -7,14 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
 
-    <!-- JQuery Library -->
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script defer src="js/login.js"></script>
     <script defer src="js/banner.js"></script>
-
-    <!-- LOAD Navigation, Header and Footer -->
-    <script defer src="./js/template.js"></script>
 
     <link rel="stylesheet" href="css/template/template.css">
     <link rel="stylesheet" href="css/template/banner.css">
@@ -26,9 +20,13 @@
 
 <body>
     
-    <header id="header"></header>
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
 
-    <div id="banner"></div>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
 
     <main>
         <h1>Conflict Tracker</h1>
@@ -45,7 +43,9 @@
             </form>
         </div>
     </main>
-    <footer id="footer"></footer>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
 </body>
 
 </html>

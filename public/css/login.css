@@ -24,7 +24,7 @@ main {
     width: 100px;
 }
 
-main input, main button {
+main input {
     background-color: #C4C4C4;
     border: none;
     border-radius: 10px;

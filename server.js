@@ -30,7 +30,11 @@ app.get("/", (req, res) => {
 })
 
 app.post("/", (req, res) => {
-    if (users[req.body.loginEmail] == req.body.loginPass) {
+    if (req.body.logOut) {
+        req.session.authenticated = false
+        req.session.user = undefined
+        res.sendFile(__dirname+ "/public/index.html")
+    } else if (users[req.body.loginEmail] == req.body.loginPass) {
         req.session.authenticated = true;
         req.session.user = req.body.loginEmail
         console.log("login sucessful");

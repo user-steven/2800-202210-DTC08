@@ -1,5 +1,5 @@
 function loadSkeleton() {
-    $("#header").load("./template/header.html")
+    $("#header").load("./template/header.ejs")
     $("#footer").load("./template/footer.html")
 }
 

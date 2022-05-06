@@ -41,7 +41,7 @@ app.post("/", (req, res) => {
     let user = false
     let userIndex = 0
     for (i=0; i < user_data.length; i++) {
-        if (user_data[i].email == req.body.loginEmail) {
+        if (user_data[i].email === req.body.loginEmail) {
             userIndex = i
             user = true
             break

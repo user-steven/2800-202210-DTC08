@@ -34,7 +34,7 @@ background-color: transparent;
 }
 
 /* Search Bar CSS Styling */
-#search_container {
+.search_container {
 display: flex;
 height: 35px;
 background-color: white;
@@ -42,22 +42,22 @@ justify-content: right;
 border-radius: 15px;
 }
 
-#search_container img {
+.search_container img {
 height: 25px;
 }
 
-#search_container button, #search_container input {
+.search_container button, .search_container input {
 border: none;
 margin-top: 3px;
 margin-bottom: 3px;
 }
 
-#search_container input {
+.search_container input {
 width: 100%;
 margin-left: 10px;
 }
 
-#search_container button {
+.search_container button {
 margin-right: 15px;
 background-color: white;
 }

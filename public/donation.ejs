@@ -6,49 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donation History</title>
-    <script defer src="/public/js/template.js"></script>
+    <script defer src="\js/banner.js"></script>
     <link rel="stylesheet" href="css/template/template.css">
     <link rel="stylesheet" href="css/template/banner.css">
     <link rel="stylesheet" href="css/template/header.css">
     <link rel="stylesheet" href="css/template/footer.css">
-
-    <style>
-        .pagination {
-            display: inline-block;
-        }
-
-        .pagination a {
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-
-        .pagination a.active {
-            background-color: #7d92d6;
-            color: white;
-            border-radius: 5px;
-        }
-
-        .pagination a:hover:not(.active) {
-            background-color: #ddd;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/donation.css">
 </head>
 
 <body>
-    <h1>Donation History</h1>
-    <div id="search"><input type="text" placeholder="Search.."></div>
-    <!-- Drop down menu for choosing display size -->
-    <label for="donation_size_select">Show Results</label>
-    <select name="donation_size_select" id="donation_size_select">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="20">20</option>
-    </select>
-    <br>
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
+    
     <main>
+        <h1>Donation History</h1>
+        <div class="search_container">
+            <input type="text" placeholder="Search by Charity Name">
+            <button><img src="\..\images\search_icon.png" alt="Search"></button>
+        </div>
+        <!-- Drop down menu for choosing display size -->
+        <div id="dropDownContainer">
+            <label for="donation_size_select">Show Results</label>
+            <select name="donation_size_select" id="donation_size_select">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        <br>
         <table>
             <tr>
                 <th>Date</th>
@@ -82,6 +71,9 @@
             <a href="#">Next</a>
         </div>
     </main>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
 </body>
 
 </html>

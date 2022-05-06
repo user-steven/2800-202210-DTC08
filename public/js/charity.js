@@ -1,3 +1,7 @@
+function loadSkeleton() {
+    $("#banner").load("./template/banner.html")
+}
+
 function processCharity(data) {
     charities = data
     console.log(charities)
@@ -25,6 +29,7 @@ async function obtainCharity() {
 }
 
 function setup () {
+    loadSkeleton()
     document.getElementById("searchCharityButton").addEventListener("click", obtainCharity)
 }
 

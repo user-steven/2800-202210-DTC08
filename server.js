@@ -23,6 +23,8 @@ const users = {
     "testUser@dtc8.ca" : "test"
 }
 
+var user_data = []
+
 app.use(express.static("./public"))
 
 app.get("/", (req, res) => {
@@ -57,4 +59,12 @@ app.get("/signup", (req, res) => {
     } else {
         res.sendFile(__dirname + "/public/registration.html")
     }
+})
+
+
+app.post("/create_user", function (req, res) {
+    registerInfo = req.body
+    user_data.push(registerInfo)
+    console.log("Registered")
+    return res.redirect("/login")
 })

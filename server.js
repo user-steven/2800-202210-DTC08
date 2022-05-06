@@ -23,7 +23,7 @@ const users = {
     "testUser@dtc8.ca" : "test"
 }
 
-var user_data = []
+var user_data = [{email: 'admin@bcit.ca', password: 'bcit', admin: true}]
 
 app.use(express.static("./public"))
 
@@ -64,7 +64,10 @@ app.get("/signup", (req, res) => {
 
 app.post("/create_user", function (req, res) {
     registerInfo = req.body
+    registerInfo["admin"] = false
     user_data.push(registerInfo)
+    // console.log(registerInfo)
+    // console.log(user_data)
     console.log("Registered")
     return res.redirect("/login")
 })

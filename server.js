@@ -34,16 +34,31 @@ app.get("/", (req, res) => {
 })
 
 app.post("/", (req, res) => {
-    if (req.body.logOut) {
+    let user = false
+    let userIndex = 0
+    for (i=0; i < user_data.length; i++) {
+        if (user_data[i].email == req.body.loginEmail) {
+            userIndex = i
+            user = true
+            break
+        }
+    }
+    if (req.body. logOut) {
         req.session.authenticated = false
         req.session.user = undefined
-        res.render(__dirname+ "/public/index.ejs")
-    } else if (users[req.body.loginEmail] == req.body.loginPass) {
+        res.render(__dirname+"/public/index.ejs")
+    }
+    else if (!user) {
+        console.log("No email found")
+        return
+    }
+    else if (user_data[userIndex].password==req.body.loginPass) {
         req.session.authenticated = true;
         req.session.user = req.body.loginEmail
         console.log("login sucessful");
         res.render(__dirname+ "/public/index.ejs")
-    } else {
+    }
+    else {
         console.log("wrong credentials");
         res.redirect("/login")
     }
@@ -66,7 +81,6 @@ app.get("/signup", (req, res) => {
         res.render(__dirname + "/public/registration.ejs")
     }
 })
-
 
 app.post("/create_user", function (req, res) {
     registerInfo = req.body

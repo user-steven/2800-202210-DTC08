@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <script defer src="js/contact.js"></script>
+    <script defer src="js/banner.js"></script>
 
     <link rel="stylesheet" href="css/template/template.css">
     <link rel="stylesheet" href="css/template/banner.css">
@@ -16,6 +17,7 @@
 </head>
 
 <body>
+
     <h1>Contact Us</h1>
     <div class="container">
         <label for="fname">First Name</label>
@@ -39,6 +41,59 @@
         <input type="submit" value="Submit">
         </form>
     </div>
+=======
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
+
+    <main>
+        <h1>Contact Us</h1>
+        <div class="formContainer">
+            <div class="fieldContainer">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Enter your first name">
+            </div>
+    
+            <div class="fieldContainer">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Enter your last name">
+            </div>
+    
+            <div class="fieldContainer">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Enter your email">
+            </div>
+    
+            <div class="fieldContainer">
+                <label for="pnumber">Phone Number</label>
+                <input type="text" id="pnumber" name="pnumber" placeholder="Enter your phone number">
+            </div>
+    
+            <div class="fieldContainer">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Tell us your subject">
+            </div>
+    
+            <div class="fieldContainer">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Write your thoughts here" style="height:200px"></textarea>
+            </div>
+    
+            <div class="fieldContainer">
+                <input id="submitButton" type="submit" value="Submit">
+            </div>
+            
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <%- include("./template/footer") %>
+    </footer>
+>>>>>>> Alexander_Farlinger_Contact_Page
 </body>
 
 </html>

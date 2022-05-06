@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register</title>
+        <!-- JQuery Library -->
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <!-- JQuery Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./js/registration.js"></script>
-    <script src="./js/template.js"></script>
-    <!-- LOAD Navigation, Header and Footer -->
-    <link rel="stylesheet" href="css/template/template.css">
-    <link rel="stylesheet" href="css/template/header.css">
-    <link rel="stylesheet" href="css/template/footer.css">
-</head>
+        <script defer src="./js/banner.js"></script>
+        <script defer src="./js/registration.js"></script>
+        <script defer src="./js/template.js"></script>
+        <!-- LOAD Navigation, Header and Footer -->
+        <link rel="stylesheet" href="css/template/template.css">
+        <link rel="stylesheet" href="css/template/header.css">
+        <link rel="stylesheet" href="css/template/footer.css">
+        <link rel="stylesheet" href="css/registration.css">
+    </head>
+    <body>
+        <header id="header"></header>
+        <div id="banner"></div>
+        <h1>Register</h1>
+        <form id="registerForm" action="/create_user" method="POST">
+            <!-- <div> -->
+                <!-- <label for="firstNameRegister">First Name:</label>
+                <input type="text" name="firstName" id="firstNameRegister">
+            </div>
 
-<body>
-    <header id="header"></header>
-    <nav id="navigation"></nav>
-    <h1>Register</h1>
-    <form id="registerForm" action="/create_user" method="POST">
-        <div>
-            <!-- <label for="firstNameRegister">First Name:</label>
-            <input type="text" name="firstName" id="firstNameRegister">
-        </div>
+            <div>
+                <label for="lastNameRegister">Last Name:</label>
+                <input type="text" name="lastName" id="lastNameRegister">
+            </div> -->
 
-        <div>
-            <label for="lastNameRegister">Last Name:</label>
-            <input type="text" name="lastName" id="lastNameRegister">
-        </div> -->
+            <div>
+                <label for="emailRegister">Email:</label>
+                <input type="email" name="email" id="emailRegister" placeholder="enter email">
+            </div>
 
-        <div>
-            <label for="emailRegister">Email:</label>
-            <input type="email" name="email" id="emailRegister" placeholder="enter email">
-        </div>
+            <div>
+                <label for="passwordRegister">Password:</label>
+                <input type="password" name="password" id="passwordRegister" placeholder="enter password">
+            </div>
 
-        <div>
-            <label for="passwordRegister">Password:</label>
-            <input type="password" name="password" id="passwordRegister" placeholder="enter password">
-        </div>
-
-        <!-- <div>
-            <label for="confirmPasswordRegister">Confirm Password:</label>
-            <input type="password" name="confirmPassword" id="confirmPasswordRegister">
-        </div> -->
-        <button type="submit" id="registerButton">Register</button>
-    </form>
-    <footer id="footer"></footer>
-</body>
-
-
+            <!-- <div>
+                <label for="confirmPasswordRegister">Confirm Password:</label>
+                <input type="password" name="confirmPassword" id="confirmPasswordRegister">
+            </div> -->
+            <button type="submit" id="registerButton">Register</button>
+        </form>
+        <footer id="footer"></footer>
+    </body>
 </html>

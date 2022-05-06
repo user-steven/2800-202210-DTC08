@@ -100,9 +100,7 @@ app.get("/userAccounts", (req, res) => {
 });
 
 app.get("/contactUs", (req, res) => {
-    // if user is admin
     res.render(__dirname + "/public/contact.ejs")
-    // else 404 not found
 })
 
 app.post("/create_user", function (req, res) {
@@ -114,3 +112,19 @@ app.post("/create_user", function (req, res) {
   console.log("Registered");
   return res.redirect("/login");
 });
+
+app.get("/profile", (req, res) => {
+    res.render(__dirname + "/public/profile.ejs")
+})
+
+app.get("/news", (req, res) => {
+    res.render(__dirname + "/public/news.ejs")
+})
+
+app.get("/donationHistory", (req, res) => {
+    res.render(__dirname + "/public/donation.ejs")
+})
+
+app.get("/charities", (req, res) => {
+    res.render(__dirname + "/public/charity.ejs")
+})

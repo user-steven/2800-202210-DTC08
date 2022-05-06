@@ -7,7 +7,7 @@ footer {
     bottom: 0;
   }
 
-  footer button {
+  footer form input {
     background-color: transparent;
     padding: 3px;
     border-radius: 15px;

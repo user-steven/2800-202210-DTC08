@@ -92,6 +92,12 @@ app.get("/userAccounts", (req, res) => {
   // else 404 not found
 });
 
+app.get("/contactUs", (req, res) => {
+    // if user is admin
+    res.render(__dirname + "/public/contact.ejs")
+    // else 404 not found
+})
+
 app.post("/create_user", function (req, res) {
   registerInfo = req.body;
   registerInfo["admin"] = false;

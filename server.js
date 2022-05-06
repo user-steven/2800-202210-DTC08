@@ -47,7 +47,7 @@ app.post("/", (req, res) => {
             break
         }
     }
-    if (req.body. logOut) {
+    if (req.body.logOut) {
         req.session.authenticated = false
         req.session.user = undefined
         res.render(__dirname+"/public/index.ejs")

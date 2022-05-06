@@ -9,7 +9,7 @@
 //     @see https://www.w3schools.com/howto/howto_js_slideshow.asp
 
 let slideIndex = 1;
-//showSlides(slideIndex);
+showSlides(slideIndex);
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -34,4 +34,5 @@ function currentSlide(n) {
   slides[slideIndex-1].style.display = "block";
   $(slides[slideIndex-1]).css("display", "block");  
   dots[slideIndex-1].className += " active";
+  
 }

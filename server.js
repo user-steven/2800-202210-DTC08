@@ -59,6 +59,7 @@ app.post("/", (req, res) => {
     else if (user_data[userIndex].password==req.body.loginPass) {
         req.session.authenticated = true;
         req.session.user = req.body.loginEmail
+        req.session.isAdmin = user_data[userIndex].admin
         console.log("login sucessful");
         res.render(__dirname+ "/public/index.ejs")
     }
@@ -87,9 +88,15 @@ app.get("/signup", (req, res) => {
 });
 
 app.get("/userAccounts", (req, res) => {
-  // if user is admin
-  res.render(__dirname + "/public/account.ejs");
-  // else 404 not found
+    console.log(req.session);
+  if (req.session.isAdmin) {
+    res.render(__dirname + "/public/account.ejs", {
+        user_data : user_data
+    });
+  } else {
+      res.redirect("/")
+  }
+
 });
 
 app.get("/contactUs", (req, res) => {

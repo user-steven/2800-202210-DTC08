@@ -9,22 +9,29 @@
 
     <!-- JQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script defer src="\js/banner.js"></script>
     <script src="./js/charity.js" defer></script>
 
     <!-- LOAD Navigation, Header and Footer -->
     <script src="./js/template.js"></script>
-    <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/template/template.css">
+    <link rel="stylesheet" href="css/template/banner.css">
+    <link rel="stylesheet" href="css/template/header.css">
+    <link rel="stylesheet" href="css/template/footer.css">
+    <link rel="stylesheet" href="\css/charity.css">
 </head>
 
 <body>
-    <header id="header"></header>
-    <h1>Charity links</h1>
-    <nav id="navigation"></nav>
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
 
     <main>
+        <h1>Charity links</h1>
         <div id="charitySearchBar">
             <label for="charitySearch">Search for charities:</label>
             <select id="charityCategories">
@@ -47,7 +54,9 @@
         <ol id="charityList"></ol>
     </main>
 
-    <footer id="footer"></footer>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
 
 </body>
 

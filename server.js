@@ -52,7 +52,7 @@ app.get("/login", (req, res) => {
         res.redirect("/")
         console.log("already have a session");
     } else {
-        res.sendFile(__dirname + "/public/login.html")
+        res.render(__dirname + "/public/login.ejs")
     } 
 })
 
@@ -61,6 +61,6 @@ app.get("/signup", (req, res) => {
         res.redirect("/")
         console.log("already signed up");
     } else {
-        res.sendFile(__dirname + "/public/registration.html")
+        res.render(__dirname + "/public/registration.ejs")
     }
 })

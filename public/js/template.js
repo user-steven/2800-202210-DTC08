@@ -1,6 +1,6 @@
 function loadSkeleton() {
     $("#header").load("./template/header.ejs")
-    $("#footer").load("./template/footer.html")
+    $("#footer").load("./template/footer.ejs")
 }
 
 function setup() {

@@ -1,5 +1,5 @@
 function loadSkeleton() {
-  $("#banner").load("./template/banner.html")
+  $("#banner").load("./template/banner.ejs")
 }
 
 loadSkeleton()

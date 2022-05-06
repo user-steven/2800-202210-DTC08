@@ -16,3 +16,13 @@ html {
     flex-direction: column;
     justify-content: space-between;
   }
+
+  h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+  }

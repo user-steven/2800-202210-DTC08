@@ -6,59 +6,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Setting</title>
+    <script defer src="\js/banner.js"></script>
     <script defer src="js/profile.js"></script>
 
     <link rel="stylesheet" href="css/template/template.css">
     <link rel="stylesheet" href="css/template/banner.css">
     <link rel="stylesheet" href="css/template/header.css">
     <link rel="stylesheet" href="css/template/footer.css">
+    <link rel="stylesheet" href="\css/profile.css">
 </head>
 
 <body>
-    <h1>Profile Page</h1>
-    <br>
-    <div class="profile_form">
-        <h3>First Name:</h3>
-        <input type="text" placeholder="Enter your first name" id="fname" name="fname"><br><br>
-        <h3>Last Name:</h3>
-        <input type="text" placeholder="Enter your last name" id="lname" name="lname"><br><br>
-        <h3>Email:</h3>
-        <input type="text" placeholder="Enter your email" id="email" name="email"><br><br>
-        <h3>Password:</h3>
-        <input type="text" placeholder="Enter your password" id="password" name="password"><br><br>
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
     </div>
 
-    <div class="region_list">
+    <main>
+        <h1>Profile Page</h1>
+        <br>
+        <div class="profile_form">
+            <h3>First Name:</h3>
+            <input type="text" placeholder="Enter your first name" id="fname" name="fname"><br><br>
+            <h3>Last Name:</h3>
+            <input type="text" placeholder="Enter your last name" id="lname" name="lname"><br><br>
+            <h3>Email:</h3>
+            <input type="text" placeholder="Enter your email" id="email" name="email"><br><br>
+            <h3>Password:</h3>
+            <input type="text" placeholder="Enter your password" id="password" name="password"><br><br>
+        </div>
+
         <h2>Select your regions:</h2>
-        <input type="checkbox" id="middle_east" name="middle_east" value="Middle East">
-        <label for="middle_east"> Middle East</label>
-        <input type="checkbox" id="myanmar" name="myanmar" value="Myanmar">
-        <label for="myanmar"> Myanmar</label>
-        <input type="checkbox" id="china" name="china" value="China">
-        <label for="china"> China</label><br>
+        <div class="region_list">
+            <div class="region_container">
+                <input type="checkbox" id="middle_east" name="middle_east" value="Middle East">
+                <label for="middle_east"> Middle East</label>
+            </div>
+            <div class="region_container">
+                <input type="checkbox" id="myanmar" name="myanmar" value="Myanmar">
+                <label for="myanmar"> Myanmar</label>
+            </div>
+            <div class="region_container">
+                <input type="checkbox" id="china" name="china" value="China">
+                <label for="china"> China</label><br>
+            </div>
+            <div class="region_container">
+                <input type="checkbox" id="north_korea" name="north_korea" value="North Korea">
+                <label for="north_korea"> North Korea</label>
+            </div>
+            <div class="region_container">
+                <input type="checkbox" id="ukraine" name="ukraine" value="Ukraine">
+                <label for="ukraine"> Ukraine</label>
+            </div>
+            <div class="region_container">
+                <input type="checkbox" id="afghanistan" name="afghanistan" value="Afghanistan">
+                <label for="afghanistan"> Afghanistan</label><br>
+            </div>
+            <div class="region_container">
+                <input type="checkbox" id="ethiopia" name="ethiopia" value="Ethiopia">
+                <label for="ethiopia"> Ethiopia</label>
+            </div>
+            <div class="region_container">
+                <input type="checkbox" id="iran" name="iran" value="Iran">
+                <label for="iran"> Iran</label>
+            </div>
+            <div class="region_container">
+                <input type="checkbox" id="pakistan" name="pakistan" value="Pakistan">
+                <label for="pakistan"> Pakistan</label>
+            </div>
 
-        <input type="checkbox" id="north_korea" name="north_korea" value="North Korea">
-        <label for="north_korea"> North Korea</label>
-        <input type="checkbox" id="ukraine" name="ukraine" value="Ukraine">
-        <label for="ukraine"> Ukraine</label>
-        <input type="checkbox" id="afghanistan" name="afghanistan" value="Afghanistan">
-        <label for="afghanistan"> Afghanistan</label><br>
+        </div>
+        <br><br>
+        <div>
+            <input type="submit" value="Edit">
+            <input type="submit" value="Submit">
+        </div>
+    </main>
 
-        <input type="checkbox" id="ethiopia" name="ethiopia" value="Ethiopia">
-        <label for="ethiopia"> Ethiopia</label>
-        <input type="checkbox" id="iran" name="iran" value="Iran">
-        <label for="iran"> Iran</label>
-        <input type="checkbox" id="pakistan" name="pakistan" value="Pakistan">
-        <label for="pakistan"> Pakistan</label><br>
-
-    </div>
-    <br><br>
-    <div>
-        <input type="submit" value="Edit">
-        <input type="submit" value="Submit">
-    </div>
-
-
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
 </body>
 
 </html>

@@ -1,12 +1,3 @@
-h1 {
-    text-align: center;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-}
-
 #banner {
     position: relative;
     top: -20px;

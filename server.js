@@ -50,6 +50,7 @@ app.post("/", (req, res) => {
     if (req.body.logOut) {
         req.session.authenticated = false
         req.session.user = undefined
+        req.session.isAdmin = false
         res.render(__dirname+"/public/index.ejs")
     }
     else if (!user) {

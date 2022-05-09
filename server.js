@@ -34,7 +34,9 @@ var user_data = [{ email: "admin@bcit.ca", password: "bcit", admin: true }];
 app.use(express.static("./public"));
 
 app.get("/", (req, res) => {
-  res.render(__dirname + "/public/index.ejs");
+  res.render(__dirname + "/public/index.ejs", {
+      session : req.session.authenticated
+  });
 });
 
 app.post("/", (req, res) => {
@@ -51,7 +53,9 @@ app.post("/", (req, res) => {
         req.session.authenticated = false
         req.session.user = undefined
         req.session.isAdmin = false
-        res.render(__dirname+"/public/index.ejs")
+        res.render(__dirname+"/public/index.ejs", {
+            session : req.session.authenticated
+        })
     }
     else if (!user) {
         console.log("No email found")
@@ -62,7 +66,9 @@ app.post("/", (req, res) => {
         req.session.user = req.body.loginEmail
         req.session.isAdmin = user_data[userIndex].admin
         console.log("login sucessful");
-        res.render(__dirname+ "/public/index.ejs")
+        res.render(__dirname+ "/public/index.ejs", {
+            session : req.session.authenticated
+        })
     }
     else {
         console.log("wrong credentials");
@@ -75,7 +81,10 @@ app.get("/login", (req, res) => {
     res.redirect("/");
     console.log("already have a session");
   } else {
-    res.render(__dirname + "/public/login.ejs");
+    res.render(__dirname + "/public/login.ejs", {
+        session : false
+
+    });
   }
 });
 
@@ -84,7 +93,9 @@ app.get("/signup", (req, res) => {
     res.redirect("/");
     console.log("already signed up");
   } else {
-    res.render(__dirname + "/public/registration.ejs");
+    res.render(__dirname + "/public/registration.ejs", {
+        session : false
+    });
   }
 });
 
@@ -92,7 +103,8 @@ app.get("/userAccounts", (req, res) => {
     console.log(req.session);
   if (req.session.isAdmin) {
     res.render(__dirname + "/public/account.ejs", {
-        user_data : user_data
+        user_data : user_data,
+        session : req.session.authenticated
     });
   } else {
       res.redirect("/")
@@ -101,7 +113,9 @@ app.get("/userAccounts", (req, res) => {
 });
 
 app.get("/contactUs", (req, res) => {
-    res.render(__dirname + "/public/contact.ejs")
+    res.render(__dirname + "/public/contact.ejs", {
+        session : req.session.authenticated
+    })
 })
 
 app.post("/create_user", function (req, res) {
@@ -115,17 +129,25 @@ app.post("/create_user", function (req, res) {
 });
 
 app.get("/profile", (req, res) => {
-    res.render(__dirname + "/public/profile.ejs")
+    res.render(__dirname + "/public/profile.ejs", {
+        session : req.session.authenticated
+    })
 })
 
 app.get("/news", (req, res) => {
-    res.render(__dirname + "/public/news.ejs")
+    res.render(__dirname + "/public/news.ejs", {
+        session : req.session.authenticated
+    })
 })
 
 app.get("/donationHistory", (req, res) => {
-    res.render(__dirname + "/public/donation.ejs")
+    res.render(__dirname + "/public/donation.ejs", {
+        session : req.session.authenticated
+    })
 })
 
 app.get("/charities", (req, res) => {
-    res.render(__dirname + "/public/charity.ejs")
+    res.render(__dirname + "/public/charity.ejs", {
+        session : req.session.authenticated
+    })
 })

@@ -4,10 +4,31 @@
         <input type="text">
         <button><img src="\..\images\search_icon.png" alt="Search"></button>
     </div>
+    
+    <button id="menu"><img src="\..\images/menu.png" alt="Menu"></button>
+</nav>
+<div id="dropdownMenu">
+
+    <form action="/" method="" id="homeButton">
+        <input type="submit" value="Home" name="home">
+    </form>
+
+    <form action="/" method="" id="newsButton">
+        <input type="submit" value="News" name="news">
+    </form>
+
+    <form action="" method="post" id="charitiesButton">
+        <input type="submit" value="Charities" name="charities">
+    </form>
+
     <% if (session) { %>
         <form action="/" method="post" id="logOutButton">
             <input type="submit" value="Log Out" name="logOut">
         </form>
+
+        <form action="" method="post" id="profileButton">
+            <input type="submit" value="Profile" name="profile">
+        </form>
     <% } %>
-    <button id="menu"><img src="\..\images/menu.png" alt=""></button>
-</nav>
+
+</div>

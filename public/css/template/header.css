@@ -23,16 +23,6 @@ width: 50px;
 margin-left: 10px;
 }
 
-/* Menu Button Styling */
-#menu {
-display: flex;
-justify-content: center;
-align-items: center;
-border: none;
-margin-right: 10px;
-background-color: transparent;
-}
-
 /* Search Bar CSS Styling */
 .search_container {
 display: flex;
@@ -60,6 +50,24 @@ margin-left: 10px;
 .search_container button {
 margin-right: 15px;
 background-color: white;
+}
+
+/* Menu Button Styling */
+#menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-right: 10px;
+  background-color: transparent;
+}
+
+#dropdownMenu {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  border: solid black 1px;
+  border-radius: 7px;
 }
 
 /* CSS Styling for Larger Sceeens */

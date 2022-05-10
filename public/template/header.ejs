@@ -15,11 +15,11 @@
             <input type="submit" value="Home" name="home">
         </form>
 
-        <form action="/" method="" id="newsButton">
+        <form action="/news" method="get" id="newsButton">
             <input type="submit" value="News" name="news">
         </form>
 
-        <form action="" method="" id="charitiesButton">
+        <form action="/charities" method="get" id="charitiesButton">
             <input type="submit" value="Charities" name="charities">
         </form>
 
@@ -28,15 +28,15 @@
                 <input type="submit" value="Log Out" name="logOut">
             </form>
 
-            <form action="" method="" id="profileButton">
+            <form action="/profile" method="get" id="profileButton">
                 <input type="submit" value="Profile" name="profile">
             </form>
         <% } else {%>
-            <form action="/" method="" id="logInButton">
+            <form action="/login" method="get" id="logInButton">
                 <input type="submit" value="Log In" name="log in">
             </form>
 
-            <form action="/" method="" id="signUpButton">
+            <form action="/signup" method="get" id="signUpButton">
                 <input type="submit" value="Sign Up" name="signUp">
             </form>
         <% } %>

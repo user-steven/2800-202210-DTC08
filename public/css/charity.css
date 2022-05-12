@@ -20,3 +20,15 @@ main input, main button {
 select {
     border-radius: 15px;
 }
+
+#charityList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

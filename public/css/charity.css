@@ -1,6 +1,8 @@
 #charitySearchBar {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #charitySearchBar * {
@@ -32,3 +34,9 @@ main {
     flex-direction: column;
     align-items: center;
 }
+
+@media only screen and (min-width: 1200px) {
+    #charitySearchBar {
+      flex-direction: row;
+    }
+  }

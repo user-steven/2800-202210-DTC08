@@ -53,7 +53,6 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
   let user
-  console.log(req.body);
 
   if (req.body.logOut === "") {
     req.session.authenticated = false

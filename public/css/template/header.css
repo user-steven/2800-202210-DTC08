@@ -108,6 +108,8 @@ nav .menu {
 }
 
 /* CSS Styling for Larger Sceeens */
-@media only screen and (min-width: 500px) {
-
+@media only screen and (max-width: 500px) {
+  #dropdownMenu {
+    width: 90%;
+  }
 }

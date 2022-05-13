@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 
 app.set("view engine", "ejs");
+let dtc08db
 
 const bodyparser = require("body-parser");
 app.use(
@@ -12,11 +13,15 @@ app.use(
   })
 );
 
-mongoose.connect("mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
-                        {
-                            // useNewUrlParser: true,
-                            // useUnifiedtepology: true,
-                        });
+mongoose.connect("mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority", function (err, db) {
+    if (err) {throw err}
+
+    dtc08db = db
+    db.collection('userAccounts').find({}).toArray((err, result) => {
+        if (err) {throw err}
+
+    })
+});
 
 app.use(
   session({
@@ -42,40 +47,45 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-    let user = false
+    let user
     let userIndex = 0
-    for (i=0; i < user_data.length; i++) {
-        if (user_data[i].email === req.body.loginEmail) {
-            userIndex = i
-            user = true
-            break
+
+    dtc08db.collection('userAccounts').find(
+      {'email': { $eq: req.body.loginEmail}}
+    ).toArray(function(err, result) {
+        if (err) {throw err;}
+        if (result.length > 0) {
+          user = result[0];
+          console.log(`the user is ${user}`);
         }
-    }
-    if (req.body.logOut) {
-        req.session.authenticated = false
-        req.session.user = undefined
-        req.session.isAdmin = false
-        res.render(__dirname+"/public/index.ejs", {
-            session : req.session.authenticated
-        })
-    }
-    else if (!user) {
-        console.log("No email found")
-        return
-    }
-    else if (user_data[userIndex].password==req.body.loginPass) {
-        req.session.authenticated = true;
-        req.session.user = req.body.loginEmail
-        req.session.isAdmin = user_data[userIndex].admin
-        console.log("login sucessful");
-        res.render(__dirname+ "/public/index.ejs", {
-            session : req.session.authenticated
-        })
-    }
-    else {
-        console.log("wrong credentials");
-        res.redirect("/login")
-    }
+
+        if (req.body.logOut) {
+          req.session.authenticated = false
+          req.session.user = undefined
+          req.session.isAdmin = false
+          res.render(__dirname+"/public/index.ejs", {
+              session : req.session.authenticated
+          })
+      }
+      else if (!user) {
+          console.log("No email found")
+          return
+      }
+      else if (user.password===req.body.loginPass) {
+          req.session.authenticated = true;
+          req.session.user = req.body.loginEmail
+          req.session.isAdmin = user_data[userIndex].admin
+          console.log("login sucessful");
+          res.render(__dirname+ "/public/index.ejs", {
+              session : req.session.authenticated
+          })
+      }
+      else {
+          console.log("wrong credentials");
+          res.redirect("/login")
+      }
+
+    })
 })
 
 app.get("/login", (req, res) => {
@@ -122,11 +132,14 @@ app.get("/contactUs", (req, res) => {
 
 app.post("/create_user", function (req, res) {
   registerInfo = req.body;
-  registerInfo["admin"] = false;
-  user_data.push(registerInfo);
+  registerInfo["isAdmin"] = false;
+
+  dtc08db.collection('userAccounts').insertOne(registerInfo)
+
+  // user_data.push(registerInfo);
   console.log(registerInfo);
-  console.log(user_data);
-  console.log("Registered");
+  // console.log(user_data);
+  // console.log("Registered");
   return res.redirect("/login");
 });
 

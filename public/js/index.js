@@ -21,6 +21,9 @@ var map = new atlas.Map('map', {
 //Wait until the map resources are ready.
 map.events.add('ready', function () {
     for (var key in country) {
+
+        countryName = key
+
         var key = new atlas.HtmlMarker({
             position: country[key],
             pixelOffset: [6, -15],
@@ -28,8 +31,12 @@ map.events.add('ready', function () {
         })
 
         map.markers.add(key)
-        map.events.add('click', key, () => {
-            window.location.href = '/news'
-        })
+
+        if (countryName == "ukraine") {
+            map.events.add('click', key, () => {
+                window.location.href = '/news'
+            })
+        }
+
     }
 });

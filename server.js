@@ -58,38 +58,36 @@ app.post("/", (req, res) => {
     dtc08db.collection('userAccounts').find(
       {'email': { $eq: req.body.loginEmail}}
     ).toArray(function(err, result) {
-        if (err) {throw err;}
-        if (result.length > 0) {
-          user = result[0];
-          console.log(`the user is ${user}`);
-        }
+      if (err) {throw err;}
+      if (result.length > 0) {
+        user = result[0];
+      }
 
-        if (req.body.logOut) {
-          req.session.authenticated = false
-          req.session.user = undefined
-          req.session.isAdmin = false
-          res.render(__dirname+"/public/index.ejs", {
-              session : req.session.authenticated
-          })
+      if (req.body.logOut) {
+        req.session.authenticated = false
+        req.session.user = undefined
+        req.session.isAdmin = false
+        res.render(__dirname+"/public/index.ejs", {
+            session : req.session.authenticated
+        })
       }
       else if (!user) {
-          console.log("No email found")
-          return
+        console.log("No email found")
+        return
       }
       else if (user.password === req.body.loginPass) {
-          req.session.authenticated = true;
-          req.session.user = req.body.loginEmail
-          req.session.isAdmin = user_data[userIndex].admin
-          console.log("login sucessful");
-          res.render(__dirname+ "/public/index.ejs", {
-              session : req.session.authenticated
-          })
+        req.session.authenticated = true;
+        req.session.user = req.body.loginEmail
+        req.session.isAdmin = user.isAdmin
+        console.log("login sucessful");
+        res.render(__dirname+ "/public/index.ejs", {
+            session : req.session.authenticated
+        })
       }
       else {
           console.log("wrong credentials");
           res.redirect("/login")
       }
-
     })
 })
 

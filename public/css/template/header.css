@@ -103,7 +103,13 @@ nav .menu {
   border: none;
 }
 
-/* CSS Styling for Larger Sceeens */
-@media only screen and (min-width: 500px) {
+#buttonContainer form label {
+  position: absolute;
+}
 
+/* CSS Styling for Larger Sceeens */
+@media only screen and (max-width: 500px) {
+  #dropdownMenu {
+    width: 90%;
+  }
 }

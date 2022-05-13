@@ -52,9 +52,18 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-    let user
-    let userIndex = 0
+  let user
+  console.log(req.body);
 
+  if (req.body.logOut === "") {
+    req.session.authenticated = false
+    req.session.user = undefined
+    req.session.isAdmin = false
+    console.log("logout successful");
+    res.render(__dirname+"/public/index.ejs", {
+        session : req.session.authenticated
+    })
+  } else {
     dtc08db.collection('userAccounts').find(
       {'email': { $eq: req.body.loginEmail}}
     ).toArray(function(err, result) {
@@ -63,15 +72,7 @@ app.post("/", (req, res) => {
         user = result[0];
       }
 
-      if (req.body.logOut) {
-        req.session.authenticated = false
-        req.session.user = undefined
-        req.session.isAdmin = false
-        res.render(__dirname+"/public/index.ejs", {
-            session : req.session.authenticated
-        })
-      }
-      else if (!user) {
+      if (!user) {
         console.log("No email found")
         return
       }
@@ -88,7 +89,8 @@ app.post("/", (req, res) => {
           console.log("wrong credentials");
           res.redirect("/login")
       }
-    })
+    }) 
+  }
 })
 
 app.get("/login", (req, res) => {

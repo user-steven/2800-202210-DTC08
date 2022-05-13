@@ -29,10 +29,16 @@ main button {
 @media only screen and (min-width: 500px) {
   #relatedNewsContainer {
     flex-direction: row;
+    position: relative;
+    left: 80px;
   }
 }
 
 /* Neil's part */
+
+h3 {
+  font-size: 30px;
+}
 
 .area_pic {
   width: 60vh;
@@ -59,4 +65,9 @@ main button {
 
 .container {
   padding: 2px 16px;
+}
+
+.relatedNewsContainer {
+  position: relative;
+  left: 80px;
 }

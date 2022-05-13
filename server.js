@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+const mongoose = require("mongoose");
 const session = require("express-session");
 
 app.set("view engine", "ejs");
@@ -11,6 +11,12 @@ app.use(
     extended: true,
   })
 );
+
+mongoose.connect("mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
+                        {
+                            // useNewUrlParser: true,
+                            // useUnifiedtepology: true,
+                        });
 
 app.use(
   session({
@@ -24,11 +30,6 @@ app.listen(process.env.PORT || 5100, function (err) {
   if (err)
       console.log(err);
 })
-
-const users = {
-  "superUser@dtc8.ca": "super",
-  "testUser@dtc8.ca": "test",
-};
 
 var user_data = [{ email: "admin@bcit.ca", password: "bcit", admin: true }];
 

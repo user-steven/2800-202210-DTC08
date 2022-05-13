@@ -10,7 +10,6 @@ const country = {
 //Initialize a map instance.
 var map = new atlas.Map('map', {
     //Only allow one copy of the world be rendered when zoomed out.
-    renderWorldCopies: false,
     view: "Auto",
     //Add your Azure Maps subscription client ID to the map SDK.
     authOptions: {

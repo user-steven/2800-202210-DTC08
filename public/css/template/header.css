@@ -103,6 +103,10 @@ nav .menu {
   border: none;
 }
 
+#buttonContainer form label {
+  position: absolute;
+}
+
 /* CSS Styling for Larger Sceeens */
 @media only screen and (min-width: 500px) {
 

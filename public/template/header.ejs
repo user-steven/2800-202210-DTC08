@@ -1,5 +1,7 @@
 <nav>
-    <img id="logo" src="\..\images/CT.png" alt="Conflict Tracker" >
+    <a href="/">
+        <img id="logo" src="\..\images/CT.png" alt="Conflict Tracker" >
+    </a>
     <div class="search_container">
         <input type="text">
         <button><img src="\..\images\search_icon.png" alt="Search"></button>
@@ -12,33 +14,40 @@
 
     <div id="buttonContainer">
         <form action="/" method="" id="homeButton">
-            <input type="submit" value="Home" name="home">
+            <label for="home">Home</label>
+            <input id="home" type="submit" value="" name="home">
         </form>
 
         <form action="/news" method="get" id="newsButton">
-            <input type="submit" value="News" name="news">
+            <label for="news">News</label>
+            <input id="news" type="submit" value="" name="news">
         </form>
 
         <form action="/charities" method="get" id="charitiesButton">
-            <input type="submit" value="Charities" name="charities">
+            <label for="charities">Charities</label>
+            <input id="charities" type="submit" value="" name="charities">
         </form>
 
         <% if (session) { %>
             <form action="/" method="post" id="logOutButton">
-                <input type="submit" value="Log Out" name="logOut">
+                <label for="logout">Log Out</label>
+                <input id="logout" type="submit" value="" name="logOut">
             </form>
 
             <form action="/profile" method="get" id="profileButton">
-                <input type="submit" value="Profile" name="profile">
+                <label for="profile">Profile</label>
+                <input id="profile" type="submit" value="" name="profile">
             </form>
 
         <% } else {%>
             <form action="/login" method="get" id="logInButton">
-                <input type="submit" value="Log In" name="log in">
+                <label for="login">Log In</label>
+                <input id="login" type="submit" value="" name="log in">
             </form>
 
             <form action="/signup" method="get" id="signUpButton">
-                <input type="submit" value="Sign Up" name="signUp">
+                <label for="signup">Sign Up</label>
+                <input id="signup" type="submit" value="" name="signUp">
             </form>
         <% } %>
     </div>

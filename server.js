@@ -36,8 +36,6 @@ app.listen(process.env.PORT || 5100, function (err) {
       console.log(err);
 })
 
-var user_data = [{ email: "admin@bcit.ca", password: "bcit", admin: true }];
-
 app.use(express.static("./public"));
 
 app.get("/", (req, res) => {
@@ -71,7 +69,7 @@ app.post("/", (req, res) => {
           console.log("No email found")
           return
       }
-      else if (user.password===req.body.loginPass) {
+      else if (user.password === req.body.loginPass) {
           req.session.authenticated = true;
           req.session.user = req.body.loginEmail
           req.session.isAdmin = user_data[userIndex].admin
@@ -133,13 +131,8 @@ app.get("/contactUs", (req, res) => {
 app.post("/create_user", function (req, res) {
   registerInfo = req.body;
   registerInfo["isAdmin"] = false;
-
   dtc08db.collection('userAccounts').insertOne(registerInfo)
-
-  // user_data.push(registerInfo);
   console.log(registerInfo);
-  // console.log(user_data);
-  // console.log("Registered");
   return res.redirect("/login");
 });
 

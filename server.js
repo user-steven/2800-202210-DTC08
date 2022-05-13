@@ -52,7 +52,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-<<<<<<< HEAD
     let user
     let userIndex = 0
 
@@ -93,40 +92,6 @@ app.post("/", (req, res) => {
 
     })
 })
-=======
-  let user = false;
-  let userIndex = 0;
-  for (i = 0; i < user_data.length; i++) {
-    if (user_data[i].email === req.body.loginEmail) {
-      userIndex = i;
-      user = true;
-      break;
-    }
-  }
-  if (req.body.logOut) {
-    req.session.authenticated = false;
-    req.session.user = undefined;
-    req.session.isAdmin = false;
-    res.render(__dirname + "/public/index.ejs", {
-      session: req.session.authenticated,
-    });
-  } else if (!user) {
-    console.log("No email found");
-    return;
-  } else if (user_data[userIndex].password == req.body.loginPass) {
-    req.session.authenticated = true;
-    req.session.user = req.body.loginEmail;
-    req.session.isAdmin = user_data[userIndex].admin;
-    console.log("login sucessful");
-    res.render(__dirname + "/public/index.ejs", {
-      session: req.session.authenticated,
-    });
-  } else {
-    console.log("wrong credentials");
-    res.redirect("/login");
-  }
-});
->>>>>>> b8d52e822173d9b9ee7c017427de02969c2d248a
 
 app.get("/login", (req, res) => {
   if (req.session.authenticated) {
@@ -171,14 +136,7 @@ app.get("/contactUs", (req, res) => {
 app.post("/create_user", function (req, res) {
   registerInfo = req.body;
   registerInfo["isAdmin"] = false;
-<<<<<<< HEAD
   dtc08db.collection('userAccounts').insertOne(registerInfo)
-=======
-
-  dtc08db.collection("userAccounts").insertOne(registerInfo);
-
-  // user_data.push(registerInfo);
->>>>>>> b8d52e822173d9b9ee7c017427de02969c2d248a
   console.log(registerInfo);
   return res.redirect("/login");
 });

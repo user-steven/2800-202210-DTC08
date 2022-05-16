@@ -126,6 +126,12 @@ app.get("/userAccounts", (req, res) => {
   }
 });
 
+app.get("/donation", (req, res) => {
+  res.render(__dirname + "/public/donation.ejs", {
+    session: req.session.authenticated,
+  })
+})
+
 app.get("/contactUs", (req, res) => {
   res.render(__dirname + "/public/contact.ejs", {
     session: req.session.authenticated,

@@ -28,6 +28,35 @@
             <input type="text" placeholder="Search by Charity Name">
             <button><img src="\..\images\search_icon.png" alt="Search"></button>
         </div> -->
+        <form action="/insert" method="post">
+            <h2>Create a New Donation Event</h2>
+            <div class="criteriaContainer">
+                <label for="charityName">Charity Name:</label>
+                <div class="inputContainer">
+                    <input type="text" name="charityName" id="charityName">
+                </div>
+            </div>
+            <div class="criteriaContainer">
+                <label for="dateDonated">Date Donated:</label>
+                <div class="inputContainer">
+                    <input type="date" name="dateDonated" id="dateDonated">
+                </div>
+            </div>
+            <div class="criteriaContainer">
+                <label for="amountDonated">Amount Donated:</label>
+                <div class="inputContainer"  id="amountContainer">
+                    <span id="dollarSign">$</span>
+                    <input type="number" name="amountDonated" id="amountDonated" placeholder="0.00" min="0.05">
+                </div>
+            </div>
+            <div class="criteriaContainer">
+                <label for="submitButton"></label>
+                <input type="submit" id="submitButton">
+            </div>
+        </form>
+        <div id="display">
+
+        </div>
     </main>
     <footer id="footer">
         <%- include("./template/footer") %>

@@ -1,38 +1,40 @@
 main {
+    display: flex;
     align-items: center;
+    justify-content: space-around;
+} 
+
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 60%;
+    gap: 10px;
 }
 
-main .search_container {
-    border: #C4C4C4 solid 2px;
-}
-
-#dropDownContainer {
+.criteriaContainer {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-#dropDownContainer label, #dropDownContainer select {
-    margin: 10px;
+#amountContainer {
+    border: solid black 1px;
 }
 
-.pagination {
-    display: inline-block;
+.inputContainer {
+    width: 200px;
 }
 
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
+#amountDonated {
+    border: none;
 }
 
-.pagination a.active {
-    background-color: #7d92d6;
-    color: white;
-    border-radius: 5px;
+#amountDonated:focus {
+    outline-width: 0px;
 }
 
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
-    border-radius: 5px;
+#dollarSign {
+    margin-left: 5px;
 }

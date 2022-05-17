@@ -30,20 +30,20 @@
         <div class="criteriaContainer">
             <label for="charityName">Charity Name:</label>
             <div class="inputContainer">
-                <input type="text" name="charityName" id="charityName">
+                <input type="text" name="charityName" id="charityName" required>
             </div>
         </div>
         <div class="criteriaContainer">
             <label for="dateDonated">Date Donated:</label>
             <div class="inputContainer">
-                <input type="date" name="dateDonated" id="dateDonated">
+                <input type="date" name="dateDonated" id="dateDonated" required>
             </div>
         </div>
         <div class="criteriaContainer">
             <label for="amountDonated">Amount Donated:</label>
             <div class="inputContainer"  id="amountContainer">
                 <span id="dollarSign">$</span>
-                <input type="number" name="amountDonated" id="amountDonated" placeholder="0.00" min="0.05">
+                <input type="number" name="amountDonated" id="amountDonated" placeholder="0.00" min="0.05" step="0.01" required>
             </div>
         </div>
         <div class="criteriaContainer">

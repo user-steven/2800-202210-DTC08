@@ -149,6 +149,19 @@ app.get("/getUser", (req, res) => {
   }
 })
 
+app.post("/insert", (req, res) => {
+  dtc08db.collection(`donationEvents`).insertOne({
+    "user": req.session.user,
+    "charityName": req.body.charityName,
+    "dateDonated": req.body.dateDonated,
+    "amountDonated": req.body.amountDonated,
+  }).then(function(result) {
+    res.render(__dirname + "/public/donation.ejs", {
+      session: req.session.authenticated,
+    });
+  })
+})
+
 app.get("/contactUs", (req, res) => {
   res.render(__dirname + "/public/contact.ejs", {
     session: req.session.authenticated,

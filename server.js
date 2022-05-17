@@ -48,6 +48,10 @@ app.listen(process.env.PORT || 5100, function (err) {
 
 app.use(express.static("./public"));
 
+app.get("/js/index.min.js", (req, res) =>{
+  res.sendFile(__dirname + "/node_modules/confetti-js/dist/index.min.js")
+})
+
 app.get("/", (req, res) => {
   res.render(__dirname + "/public/index.ejs", {
     session: req.session.authenticated,

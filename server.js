@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 
 app.set("view engine", "ejs");
-let dtc08db;
+
 
 const bodyparser = require("body-parser");
 app.use(
@@ -13,13 +13,14 @@ app.use(
   })
 );
 
+
+let dtc08db;
 mongoose.connect(
   "mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
   function (err, db) {
     if (err) {
       throw err;
     }
-
     dtc08db = db;
     db.collection("userAccounts")
       .find({})
@@ -30,6 +31,8 @@ mongoose.connect(
       });
   }
 );
+
+console.log(dtc08db);
 
 app.use(
   session({
@@ -130,6 +133,19 @@ app.get("/donation", (req, res) => {
   res.render(__dirname + "/public/donation.ejs", {
     session: req.session.authenticated,
   })
+})
+
+app.get("/getUser", (req, res) => {
+  if (!req.session.authenticated) {
+    res.send(`not logged in`);
+  } else {
+    dtc08db.collection(`donationEvents`).find(
+      {user: {$eq: req.session.user}}
+      ).toArray(function(err, result) {
+        if (err) {throw err}
+          res.status(200).send(result);
+      })
+  }
 })
 
 app.get("/contactUs", (req, res) => {

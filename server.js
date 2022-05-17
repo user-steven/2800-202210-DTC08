@@ -52,45 +52,46 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  let user
+  let user;
 
   if (req.body.logOut === "") {
-    req.session.authenticated = false
-    req.session.user = undefined
-    req.session.isAdmin = false
+    req.session.authenticated = false;
+    req.session.user = undefined;
+    req.session.isAdmin = false;
     console.log("logout successful");
-    res.render(__dirname+"/public/index.ejs", {
-        session : req.session.authenticated
-    })
+    res.render(__dirname + "/public/index.ejs", {
+      session: req.session.authenticated,
+    });
   } else {
-    dtc08db.collection('userAccounts').find(
-      {'email': { $eq: req.body.loginEmail}}
-    ).toArray(function(err, result) {
-      if (err) {throw err;}
-      if (result.length > 0) {
-        user = result[0];
-      }
+    dtc08db
+      .collection("userAccounts")
+      .find({ email: { $eq: req.body.loginEmail } })
+      .toArray(function (err, result) {
+        if (err) {
+          throw err;
+        }
+        if (result.length > 0) {
+          user = result[0];
+        }
 
-      if (!user) {
-        console.log("No email found")
-        return
-      }
-      else if (user.password === req.body.loginPass) {
-        req.session.authenticated = true;
-        req.session.user = req.body.loginEmail
-        req.session.isAdmin = user.isAdmin
-        console.log("login sucessful");
-        res.render(__dirname+ "/public/index.ejs", {
-            session : req.session.authenticated
-        })
-      }
-      else {
+        if (!user) {
+          console.log("No email found");
+          return;
+        } else if (user.password === req.body.loginPass) {
+          req.session.authenticated = true;
+          req.session.user = req.body.loginEmail;
+          req.session.isAdmin = user.isAdmin;
+          console.log("login sucessful");
+          res.render(__dirname + "/public/index.ejs", {
+            session: req.session.authenticated,
+          });
+        } else {
           console.log("wrong credentials");
-          res.redirect("/login")
-      }
-    }) 
+          res.redirect("/login");
+        }
+      });
   }
-})
+});
 
 app.get("/login", (req, res) => {
   if (req.session.authenticated) {
@@ -135,7 +136,7 @@ app.get("/contactUs", (req, res) => {
 app.post("/create_user", function (req, res) {
   registerInfo = req.body;
   registerInfo["isAdmin"] = false;
-  dtc08db.collection('userAccounts').insertOne(registerInfo)
+  dtc08db.collection("userAccounts").insertOne(registerInfo);
   console.log(registerInfo);
   return res.redirect("/login");
 });

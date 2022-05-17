@@ -14,9 +14,11 @@ app.use(
 );
 
 function authorize (req, res, next) {
-  if (req.session.authenticated) {
+  if (req.session.user != undefined) {
+    console.log("User Detected")
     next()
   } else {
+    console.log("No User Detected");
     res.render(__dirname + "/public/login.ejs", {
       session: false,
     });
@@ -41,8 +43,6 @@ mongoose.connect(
       });
   }
 );
-
-console.log(dtc08db);
 
 app.use(
   session({
@@ -144,7 +144,7 @@ app.get("/userAccounts", authorize, (req, res) => {
   }
 });
 
-app.get("/donation", (req, res) => {
+app.get("/donation", authorize, (req, res) => {
   res.render(__dirname + "/public/donation.ejs", {
     session: req.session.authenticated,
   })
@@ -204,11 +204,11 @@ app.get("/news", (req, res) => {
   });
 });
 
-app.get("/donationHistory", authorize, (req, res) => {
-  res.render(__dirname + "/public/donation.ejs", {
-    session: req.session.authenticated,
-  });
-});
+// app.get("/donationHistory", authorize, (req, res) => {
+//   res.render(__dirname + "/public/donation.ejs", {
+//     session: req.session.authenticated,
+//   });
+// });
 
 app.get("/charities", (req, res) => {
   res.render(__dirname + "/public/charity.ejs", {

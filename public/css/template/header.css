@@ -69,7 +69,7 @@ nav .menu {
 #dropdownMenu {
   position: absolute;
   right: 10px;
-  top: 14px;
+  top: 9px;
   border: solid black 2px;
   border-radius: 7px;
   display: none;

@@ -5,6 +5,7 @@ main {
 } 
 
 #insertEventForm {
+    align-self: center;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

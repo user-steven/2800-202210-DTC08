@@ -148,7 +148,7 @@ app.get("/donation", authorize, (req, res) => {
   res.render(__dirname + "/public/donation.ejs", {
     session: req.session.authenticated,
   })
-})
+});
 
 app.get("/getUser", (req, res) => {
   if (!req.session.authenticated) {
@@ -161,7 +161,7 @@ app.get("/getUser", (req, res) => {
           res.status(200).send(result);
       })
   }
-})
+});
 
 app.post("/insert", (req, res) => {
   dtc08db.collection(`donationEvents`).insertOne({
@@ -176,7 +176,7 @@ app.post("/insert", (req, res) => {
       });
     }, 10000);
   })
-})
+});
 
 app.get("/contactUs", (req, res) => {
   res.render(__dirname + "/public/contact.ejs", {
@@ -203,6 +203,13 @@ app.get("/news", (req, res) => {
     session: req.session.authenticated,
   });
 });
+
+app.post("/saveNews", (req, res) => {
+  dtc08db.collection(`userAccounts`).updateOne(
+    {user: {$eq: req.session.user}},
+    {$push: {savedNews: req.body.temp}}
+  )
+})
 
 // app.get("/donationHistory", authorize, (req, res) => {
 //   res.render(__dirname + "/public/donation.ejs", {

@@ -13,6 +13,16 @@ app.use(
   })
 );
 
+function authorize (req, res, next) {
+  if (req.session.authenticated) {
+    next()
+  } else {
+    res.render(__dirname + "/public/login.ejs", {
+      session: false,
+    });
+  }
+}
+
 
 let dtc08db;
 mongoose.connect(
@@ -122,8 +132,8 @@ app.get("/signup", (req, res) => {
   }
 });
 
-app.get("/userAccounts", (req, res) => {
-  console.log(req.session);
+app.get("/userAccounts", authorize, (req, res) => {
+  // console.log(req.session);
   if (req.session.isAdmin) {
     res.render(__dirname + "/public/account.ejs", {
       user_data: user_data,
@@ -182,7 +192,7 @@ app.post("/create_user", function (req, res) {
   return res.redirect("/login");
 });
 
-app.get("/profile", (req, res) => {
+app.get("/profile", authorize, (req, res) => {
   res.render(__dirname + "/public/profile.ejs", {
     session: req.session.authenticated,
   });
@@ -194,7 +204,7 @@ app.get("/news", (req, res) => {
   });
 });
 
-app.get("/donationHistory", (req, res) => {
+app.get("/donationHistory", authorize, (req, res) => {
   res.render(__dirname + "/public/donation.ejs", {
     session: req.session.authenticated,
   });

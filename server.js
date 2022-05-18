@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 
 app.set("view engine", "ejs");
-let dtc08db;
+
 
 const bodyparser = require("body-parser");
 app.use(
@@ -13,13 +13,26 @@ app.use(
   })
 );
 
+function authorize (req, res, next) {
+  if (req.session.user != undefined) {
+    console.log("User Detected")
+    next()
+  } else {
+    console.log("No User Detected");
+    res.render(__dirname + "/public/login.ejs", {
+      session: false,
+    });
+  }
+}
+
+
+let dtc08db;
 mongoose.connect(
   "mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
   function (err, db) {
     if (err) {
       throw err;
     }
-
     dtc08db = db;
     db.collection("userAccounts")
       .find({})
@@ -44,6 +57,10 @@ app.listen(process.env.PORT || 5100, function (err) {
 });
 
 app.use(express.static("./public"));
+
+app.get("/js/index.min.js", (req, res) =>{
+  res.sendFile(__dirname + "/node_modules/confetti-js/dist/index.min.js")
+})
 
 app.get("/", (req, res) => {
   res.render(__dirname + "/public/index.ejs", {
@@ -115,8 +132,8 @@ app.get("/signup", (req, res) => {
   }
 });
 
-app.get("/userAccounts", (req, res) => {
-  console.log(req.session);
+app.get("/userAccounts", authorize, (req, res) => {
+  // console.log(req.session);
   if (req.session.isAdmin) {
     res.render(__dirname + "/public/account.ejs", {
       user_data: user_data,
@@ -126,6 +143,40 @@ app.get("/userAccounts", (req, res) => {
     res.redirect("/");
   }
 });
+
+app.get("/donation", authorize, (req, res) => {
+  res.render(__dirname + "/public/donation.ejs", {
+    session: req.session.authenticated,
+  })
+})
+
+app.get("/getUser", (req, res) => {
+  if (!req.session.authenticated) {
+    res.send(`not logged in`);
+  } else {
+    dtc08db.collection(`donationEvents`).find(
+      {user: {$eq: req.session.user}}
+      ).toArray(function(err, result) {
+        if (err) {throw err}
+          res.status(200).send(result);
+      })
+  }
+})
+
+app.post("/insert", (req, res) => {
+  dtc08db.collection(`donationEvents`).insertOne({
+    "user": req.session.user,
+    "charityName": req.body.charityName,
+    "dateDonated": req.body.dateDonated,
+    "amountDonated": req.body.amountDonated,
+  }).then(function(result) {
+    setTimeout(() => {
+      res.render(__dirname + "/public/donation.ejs", {
+        session: req.session.authenticated,
+      });
+    }, 10000);
+  })
+})
 
 app.get("/contactUs", (req, res) => {
   res.render(__dirname + "/public/contact.ejs", {
@@ -141,7 +192,7 @@ app.post("/create_user", function (req, res) {
   return res.redirect("/login");
 });
 
-app.get("/profile", (req, res) => {
+app.get("/profile", authorize, (req, res) => {
   res.render(__dirname + "/public/profile.ejs", {
     session: req.session.authenticated,
   });
@@ -153,11 +204,11 @@ app.get("/news", (req, res) => {
   });
 });
 
-app.get("/donationHistory", (req, res) => {
-  res.render(__dirname + "/public/donation.ejs", {
-    session: req.session.authenticated,
-  });
-});
+// app.get("/donationHistory", authorize, (req, res) => {
+//   res.render(__dirname + "/public/donation.ejs", {
+//     session: req.session.authenticated,
+//   });
+// });
 
 app.get("/charities", (req, res) => {
   res.render(__dirname + "/public/charity.ejs", {

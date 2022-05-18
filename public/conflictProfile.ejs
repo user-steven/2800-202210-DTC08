@@ -26,6 +26,15 @@
     <main>
         <h1><%= conflictName %> - <%= country %></h1>
         <p><% description %></p>
+        <% for(var i=0; i<JSON.stringify(newsArticles).length; i++) { %>
+            <div class="news_cards">
+                <div class="container">
+                    <h4><a href="https://www.nytimes.com/news-event/ukraine-russia"><b>Russia-Ukraine War</b></a></h4>
+                    <p><i>News York Times</i></p>
+                    <p>March 2022</p>
+                </div>
+            </div>
+        <% } %>
     </main>
     <footer id="footer"><%- include("./template/footer") %></footer>
 </body>

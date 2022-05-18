@@ -2,44 +2,14 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
+const bodyparser = require("body-parser");
 
 app.set("view engine", "ejs");
 
-
-const bodyparser = require("body-parser");
 app.use(
   bodyparser.urlencoded({
     extended: true,
   })
-);
-
-function authorize (req, res, next) {
-  if (req.session.user != undefined) {
-    console.log("User Detected")
-    next()
-  } else {
-    console.log("No User Detected");
-    res.status(200).redirect("/");
-  }
-}
-
-
-let dtc08db;
-mongoose.connect(
-  "mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
-  function (err, db) {
-    if (err) {
-      throw err;
-    }
-    dtc08db = db;
-    db.collection("userAccounts")
-      .find({})
-      .toArray((err, result) => {
-        if (err) {
-          throw err;
-        }
-      });
-  }
 );
 
 app.use(
@@ -50,12 +20,37 @@ app.use(
   })
 );
 
+app.use(express.static("./public"));
+
 app.listen(process.env.PORT || 5100, function (err) {
   if (err) console.log(err);
 });
 
-app.use(express.static("./public"));
+let dtc08db;
+mongoose.connect(
+  "mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
+  function (err, db) {
+    if (err) {
+      throw err;
+    }
+    dtc08db = db;
+    console.log("var set");
+  }
+);
 
+function main() {
+
+  function authorize (req, res, next) {
+    if (req.session.user != undefined) {
+      console.log("User Detected")
+      next()
+    } else {
+      console.log("No User Detected");
+      res.status(200).redirect("/");
+    }
+  }
+
+  
 app.get("/js/index.min.js", (req, res) =>{
   res.sendFile(__dirname + "/node_modules/confetti-js/dist/index.min.js")
 })
@@ -225,14 +220,22 @@ app.post("/saveNews", (req, res) => {
   )
 })
 
-// app.get("/donationHistory", authorize, (req, res) => {
-//   res.render(__dirname + "/public/donation.ejs", {
-//     session: req.session.authenticated,
-//   });
-// });
+app.get("/getArticle/:id", (req, res) => {
+  dtc08db.collection(`newsArticles`).find({
+    _id: {$eq: req.params.id}
+  }).toArray((err, result) => {
+    res.status(200).send(result);
+  })
+})
 
 app.get("/charities", (req, res) => {
   res.render(__dirname + "/public/charity.ejs", {
     session: req.session.authenticated,
   });
 });
+
+}
+
+main();
+
+console.log("execution complete");

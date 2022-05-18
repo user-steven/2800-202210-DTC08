@@ -23,6 +23,9 @@ body {
   }
 }
 
+h2 {
+  text-align: center;
+}
 /* slide box */
 * {
   box-sizing: border-box;

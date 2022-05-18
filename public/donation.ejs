@@ -21,46 +21,60 @@
 
 <body>
     <canvas id="donationConfetti"></canvas>
-        <header id="header">
-            <%- include("./template/header") %>
-        </header>
-        <div id="banner">
-            <%- include("./template/banner") %>
-        </div>
-        <h1>Donation History</h1>
-        <form action="/insert" method="post" id="insertEventForm">
-            <h2>Create a New Donation Event</h2>
-            <div class="criteriaContainer">
-                <label for="charityName">Charity Name:</label>
-                <div class="inputContainer">
-                    <input type="text" name="charityName" id="charityName" required>
-                </div>
-            </div>
-            <div class="criteriaContainer">
-                <label for="dateDonated">Date Donated:</label>
-                <div class="inputContainer">
-                    <input type="date" name="dateDonated" id="dateDonated" required>
-                </div>
-            </div>
-            <div class="criteriaContainer">
-                <label for="amountDonated">Amount Donated:</label>
-                <div class="inputContainer" id="amountContainer">
-                    <span id="dollarSign">$</span>
-                    <input type="number" name="amountDonated" id="amountDonated" placeholder="0.00" min="0.05"
-                        step="0.01" required>
-                </div>
-            </div>
-            <div class="criteriaContainer">
-                <label for="submitButton"></label>
-                <input type="submit" id="submitButton">
-            </div>
-        </form>
-        <main>
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
+    <h1>Donation History</h1>
+    <br>
+    <form action="/insert" method="post" id="insertEventForm">
+        <h2>Fill in Donation Event</h2>
 
-        </main>
-        <footer id="footer">
-            <%- include("./template/footer") %>
-        </footer>
+        <div class="container">
+            <form action="/action_page.php">
+                <div class="row">
+                    <div class="col-25">
+                        <label class="formLabel" for="charityName">Charity Name:</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="charityName" name="charityName" placeholder="Enter Charity's Name"
+                            required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label class="formLabel" for="dateDonated">Date Donated:</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="date" id="dateDonated" name="dateDonated" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label class="formLabel" for="amountDonated">Amount Donated:</label>
+                    </div>
+                    <div class="col-75">
+                        <span id="dollar">$</span>
+                        <input type="number" name="amountDonated" id="amountDonated" placeholder="0.00" min="0.05"
+                            step="0.01" required>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <input type="submit" value="Submit" id="submitButton">
+                </div>
+            </form>
+        </div>
+
+    </form>
+    <main>
+
+    </main>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
 </body>
 
 </html>

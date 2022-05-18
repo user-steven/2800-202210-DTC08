@@ -190,10 +190,28 @@ app.get("/conflictProfile/:id", (req, res) => {
       session: req.session.authenticated,
       conflictName: result[0].conflictName,
       country: result[0].country,
-      newsArticles: result[0].newsArticles,
-      charityLinks: result[0].charityLinks,
-      description: result[0].description
+      description: result[0].description,
+      id: req.params.id
     });
+  })
+})
+
+app.get("/getArticles/:id", (req, res) => {
+  dtc08db.collection(`conflicts`).find({
+    conflictName: {$eq: req.params.id}
+  }).toArray((err, result) => {
+    if (err) {throw err}
+    res.status(200).send(result[0].newsArticles);
+  })
+})
+
+app.get("/getArticle/:id", (req, res) => {
+  var id = mongoose.Types.ObjectId(req.params.id);
+  dtc08db.collection(`newsArticles`).find({
+    _id: {$eq: id}
+  }).toArray((err, result) => {
+    if (err) {throw err}
+    res.status(200).send(result);
   })
 })
 
@@ -224,7 +242,7 @@ app.get("/charities", (req, res) => {
   });
 });
 
-console.log("execution complete");
+console.log("set up complete");
 }
 
 mongoose.connect(
@@ -234,7 +252,6 @@ mongoose.connect(
       throw err;
     }
     dtc08db = db;
-    console.log("var set");
     main();
   }
 );

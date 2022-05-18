@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const bodyparser = require("body-parser");
 
+let dtc08db;
+
 app.set("view engine", "ejs");
 
 app.use(
@@ -25,18 +27,6 @@ app.use(express.static("./public"));
 app.listen(process.env.PORT || 5100, function (err) {
   if (err) console.log(err);
 });
-
-let dtc08db;
-mongoose.connect(
-  "mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
-  function (err, db) {
-    if (err) {
-      throw err;
-    }
-    dtc08db = db;
-    console.log("var set");
-  }
-);
 
 function main() {
 
@@ -234,8 +224,17 @@ app.get("/charities", (req, res) => {
   });
 });
 
+console.log("execution complete");
 }
 
-main();
-
-console.log("execution complete");
+mongoose.connect(
+  "mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
+  function (err, db) {
+    if (err) {
+      throw err;
+    }
+    dtc08db = db;
+    console.log("var set");
+    main();
+  }
+);

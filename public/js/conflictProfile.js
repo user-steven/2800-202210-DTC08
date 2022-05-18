@@ -12,7 +12,7 @@ function getArticle(id) {
 }
 
 function setup () {
-    console.log("Conflict Profile Page Loaded");
+    console.log(`<%= conflictName %>`);
 }
 
 $(document).ready(setup)

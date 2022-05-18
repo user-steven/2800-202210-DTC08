@@ -16,64 +16,108 @@
 </head>
 
 <body>
+    <canvas id="donationConfetti"></canvas>
     <header id="header">
         <%- include("./template/header") %>
     </header>
     <div id="banner">
         <%- include("./template/banner") %>
     </div>
-    
-    <main>
-        <h1>Donation History</h1>
-        <div class="search_container">
-            <input type="text" placeholder="Search by Charity Name">
-            <button><img src="\..\images\search_icon.png" alt="Search"></button>
-        </div>
-        <!-- Drop down menu for choosing display size -->
-        <div id="dropDownContainer">
-            <label for="donation_size_select">Show Results</label>
-            <select name="donation_size_select" id="donation_size_select">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-            </select>
-        </div>
-        <br>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Charity Name</th>
-                <th>Amount</th>
-                <th>Receipt</th>
-            </tr>
-            <tr>
-                <td>5/5/2022</td>
-                <td><a href="">Ukrainian RedCross</a></td>
-                <td>$300.00</td>
-                <td><a href="">PDF</a></td>
-            </tr>
-            <tr id="donation table">
-                <td id="donation_date"></td>
-                <td id="charity_name"></td>
-                <td id="donation_amount"></td>
-                <td id="donation_receipt"></td>
+    <h1>Donation History</h1>
+    <form action="/insert" method="post" id="insertEventForm">
+        <h2>Create a New Donation Event</h2>
 
-            </tr>
-        </table>
-        <br>
-        <div class="pagination">
-            <a href="#">Previous</a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">Next</a>
+        <div class="container">
+            <form action="/action_page.php">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">First Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lname">Last Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="country">Country</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="country" name="country">
+                            <option value="australia">Australia</option>
+                            <option value="canada">Canada</option>
+                            <option value="usa">USA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea id="subject" name="subject" placeholder="Write something.."
+                            style="height:200px"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="criteriaContainer">
+            <label for="charityName">Charity Name:</label>
+            <div class="inputContainer">
+                <input type="text" name="charityName" id="charityName" placeholder="Enter Charity's Name" required>
+            </div>
+        </div>
+        <div class="criteriaContainer">
+            <label for="dateDonated">Date Donated:</label>
+            <div class="inputContainer">
+                <input type="date" name="dateDonated" id="dateDonated" required>
+            </div>
+        </div>
+        <div class="criteriaContainer">
+            <label for="amountDonated">Amount Donated:</label>
+            <div class="inputContainer" id="amountContainer">
+                <span id="dollarSign">$</span>
+                <input type="number" name="amountDonated" id="amountDonated" placeholder="0.00" min="0.05" step="0.01"
+                    required>
+            </div>
+        </div>
+        <div class="criteriaContainer">
+            <label for="submitButton"></label>
+            <input type="submit" id="submitButton">
+        </div>
+    </form>
+    <main>
+
     </main>
     <footer id="footer">
         <%- include("./template/footer") %>
     </footer>
 </body>
+
 </html>

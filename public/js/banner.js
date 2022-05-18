@@ -10,6 +10,7 @@
 
 let slideIndex = 1;
 showSlides(slideIndex);
+console.log("banner script loaded");
 
 function plusSlides(n) {
   showSlides((slideIndex += n));

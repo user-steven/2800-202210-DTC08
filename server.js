@@ -19,9 +19,7 @@ function authorize (req, res, next) {
     next()
   } else {
     console.log("No User Detected");
-    res.render(__dirname + "/public/login.ejs", {
-      session: false,
-    });
+    res.status(200).redirect("/");
   }
 }
 
@@ -197,6 +195,22 @@ app.get("/profile", authorize, (req, res) => {
     session: req.session.authenticated,
   });
 });
+
+app.get("/conflictProfile/:id", (req, res) => {
+  dtc08db.collection(`conflicts`).find({
+    conflictName: {$eq: req.params.id}
+  }).toArray((err, result) => {
+    if (err) {throw err}
+    res.render(__dirname + "/public/conflictProfile.ejs", {
+      session: req.session.authenticated,
+      conflictName: result[0].conflictName,
+      country: result[0].country,
+      newsArticles: result[0].newsArticles,
+      charityLinks: result[0].charityLinks,
+      description: result[0].description
+    });
+  })
+})
 
 app.get("/news", (req, res) => {
   res.render(__dirname + "/public/news.ejs", {

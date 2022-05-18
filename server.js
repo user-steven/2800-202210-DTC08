@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const bodyparser = require("body-parser");
 
+let dtc08db;
+
 app.set("view engine", "ejs");
 
 app.use(
@@ -25,18 +27,6 @@ app.use(express.static("./public"));
 app.listen(process.env.PORT || 5100, function (err) {
   if (err) console.log(err);
 });
-
-let dtc08db;
-mongoose.connect(
-  "mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
-  function (err, db) {
-    if (err) {
-      throw err;
-    }
-    dtc08db = db;
-    console.log("var set");
-  }
-);
 
 function main() {
 
@@ -200,10 +190,28 @@ app.get("/conflictProfile/:id", (req, res) => {
       session: req.session.authenticated,
       conflictName: result[0].conflictName,
       country: result[0].country,
-      newsArticles: result[0].newsArticles,
-      charityLinks: result[0].charityLinks,
-      description: result[0].description
+      description: result[0].description,
+      id: req.params.id
     });
+  })
+})
+
+app.get("/getArticles/:id", (req, res) => {
+  dtc08db.collection(`conflicts`).find({
+    conflictName: {$eq: req.params.id}
+  }).toArray((err, result) => {
+    if (err) {throw err}
+    res.status(200).send(result[0].newsArticles);
+  })
+})
+
+app.get("/getArticle/:id", (req, res) => {
+  var id = mongoose.Types.ObjectId(req.params.id);
+  dtc08db.collection(`newsArticles`).find({
+    _id: {$eq: id}
+  }).toArray((err, result) => {
+    if (err) {throw err}
+    res.status(200).send(result);
   })
 })
 
@@ -234,8 +242,16 @@ app.get("/charities", (req, res) => {
   });
 });
 
+console.log("set up complete");
 }
 
-main();
-
-console.log("execution complete");
+mongoose.connect(
+  "mongodb+srv://frostbind:Alex1427@cluster0.5wm77.mongodb.net/dtc08db?retryWrites=true&w=majority",
+  function (err, db) {
+    if (err) {
+      throw err;
+    }
+    dtc08db = db;
+    main();
+  }
+);

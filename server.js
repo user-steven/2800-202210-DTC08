@@ -291,13 +291,13 @@ app.post("/saveNews", (req, res) => {
   )
 })
 
-app.get("/getArticle/:id", (req, res) => {
-  dtc08db.collection(`newsArticles`).find({
-    _id: {$eq: req.params.id}
-  }).toArray((err, result) => {
-    res.status(200).send(result);
-  })
-})
+// app.get("/getArticle/:id", (req, res) => {
+//   dtc08db.collection(`newsArticles`).find({
+//     _id: {$eq: req.params.id}
+//   }).toArray((err, result) => {
+//     res.status(200).send(result);
+//   })
+// })
 
 app.get("/charities", (req, res) => {
   res.render(__dirname + "/public/charity.ejs", {

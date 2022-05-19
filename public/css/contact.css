@@ -1,25 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.contactForm {
+  padding-right: 30px;
+}
+
 .formContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 70%;
+}
+
+.formLabel {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+#fname,
+#lname,
+#email,
+#pnumber,
+#subject,
+#message {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  color: #475c54;
+  border-radius: 4px;
+  resize: vertical;
 }
 
 .fieldContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px;
 }
 
 #submitButton {
-    background-color: #C4C4C4;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-    max-width: 300px;
+  float: right;
+  background-color: #475c54;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submitButton:hover {
+  background-color: #6f796f;
 }
 
 footer form input {
-    display: none;
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  #submitButton {
+    width: 110%;
+    margin-top: 0;
+  }
 }

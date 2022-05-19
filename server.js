@@ -159,6 +159,19 @@ app.post("/insert", (req, res) => {
   })
 });
 
+app.post("/contactUs/submit", (req, res) => {
+  dtc08db.collection('contactUsFeedback').insertOne({
+    first_name: req.body.firstname,
+    last_name: req.body.lastname,
+    email: req.body.email,
+    phone_number: req.body.pnumber,
+    subject: req.body.subject,
+    message: req.body.message
+  }).then(() => {
+    res.redirect("/contactUs" + "?success")
+  })
+})
+
 app.get("/contactUs", (req, res) => {
   res.render(__dirname + "/public/contact.ejs", {
     session: req.session.authenticated,

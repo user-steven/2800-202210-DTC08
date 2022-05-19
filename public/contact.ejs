@@ -29,40 +29,42 @@
     <main>
         <h1>Contact Us</h1>
         <div class="formContainer">
-            <div class="fieldContainer">
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="Enter your first name">
-            </div>
-    
-            <div class="fieldContainer">
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Enter your last name">
-            </div>
-    
-            <div class="fieldContainer">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Enter your email">
-            </div>
-    
-            <div class="fieldContainer">
-                <label for="pnumber">Phone Number</label>
-                <input type="text" id="pnumber" name="pnumber" placeholder="Enter your phone number">
-            </div>
-    
-            <div class="fieldContainer">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Tell us your subject">
-            </div>
-    
-            <div class="fieldContainer">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" placeholder="Write your thoughts here" style="height:200px"></textarea>
-            </div>
-    
-            <div class="fieldContainer">
-                <input id="submitButton" type="submit" value="Submit">
-            </div>
-            
+            <form action="/contactUs/submit" method="post">
+                <div class="fieldContainer">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Enter your first name" required>
+                </div>
+
+                <div class="fieldContainer">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Enter your last name" required>
+                </div>
+
+                <div class="fieldContainer">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="fieldContainer">
+                    <label for="pnumber">Phone Number</label>
+                    <input type="text" id="pnumber" name="pnumber" placeholder="Enter your phone number">
+                </div>
+
+                <div class="fieldContainer">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Tell us your subject" required>
+                </div>
+
+                <div class="fieldContainer">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Write your thoughts here" style="height:200px"
+                        required></textarea>
+                </div>
+
+                <div class="fieldContainer">
+                    <input id="submitButton" type="submit" value="Submit">
+                </div>
+
             </form>
         </div>
     </main>

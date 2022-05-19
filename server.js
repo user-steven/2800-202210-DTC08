@@ -253,6 +253,14 @@ app.get("/charities", (req, res) => {
   });
 });
 
+app.get("/findTopTenArticles", (req, res)=> {
+  dtc08db.collection("newsArticles").find()
+  .sort({clicks: -1}).limit(10)
+  .toArray((err, result) =>{
+    res.send(result)
+  })
+})
+
 console.log("set up complete");
 }
 

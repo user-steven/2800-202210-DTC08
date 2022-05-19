@@ -194,6 +194,11 @@ app.post("/create_user", function (req, res) {
   return res.redirect("/login");
 });
 
+app.post("/updateUser", (req, res) => {
+  console.log(req.body);
+  res.redirect("/profile")
+})
+
 app.get("/profile", authorize, (req, res) => {
   res.render(__dirname + "/public/profile.ejs", {
     session: req.session.authenticated,

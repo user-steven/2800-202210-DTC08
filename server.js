@@ -153,11 +153,9 @@ app.post("/insert", (req, res) => {
     "dateDonated": req.body.dateDonated,
     "amountDonated": req.body.amountDonated,
   }).then(function(result) {
-    setTimeout(() => {
       res.render(__dirname + "/public/donation.ejs", {
-        session: req.session.authenticated,
+        session: req.session.authenticated
       });
-    }, 10000);
   })
 });
 

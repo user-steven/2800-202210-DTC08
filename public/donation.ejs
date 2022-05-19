@@ -50,6 +50,19 @@
                     <div class="col-75">
                         <input type="date" id="dateDonated" name="dateDonated" required>
                     </div>
+        <header id="header">
+            <%- include("./template/header") %>
+        </header>
+        <div id="banner">
+            <%- include("./template/banner") %>
+        </div>
+        <h1>Donation History</h1>
+        <form onsubmit="event.preventDefault(); populateHistory();" id="insertEventForm">
+            <h2>Create a New Donation Event</h2>
+            <div class="criteriaContainer">
+                <label for="charityName">Charity Name:</label>
+                <div class="inputContainer">
+                    <input type="text" name="charityName" id="charityName" required>
                 </div>
                 <div class="row">
                     <div class="col-25">
@@ -75,6 +88,24 @@
     <footer id="footer">
         <%- include("./template/footer") %>
     </footer>
+            </div>
+            <div class="criteriaContainer">
+                <label for="submitButton"></label>
+                <input type="submit" id="submitButton">
+            </div>
+        </form>
+        <main>
+            <table id="eventContainer">
+                <tr>
+                   <th>Charity Name</th>
+                   <th>Date Donated</th>
+                   <th>Amount Donated</th>
+                </tr>
+            </table>
+        </main>
+        <footer id="footer">
+            <%- include("./template/footer") %>
+        </footer>
 </body>
 
 </html>

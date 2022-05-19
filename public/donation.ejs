@@ -28,7 +28,7 @@
             <%- include("./template/banner") %>
         </div>
         <h1>Donation History</h1>
-        <form action="/insert" method="post" id="insertEventForm">
+        <form onsubmit="event.preventDefault(); populateHistory();" id="insertEventForm">
             <h2>Create a New Donation Event</h2>
             <div class="criteriaContainer">
                 <label for="charityName">Charity Name:</label>
@@ -56,7 +56,13 @@
             </div>
         </form>
         <main>
-
+            <table id="eventContainer">
+                <tr>
+                   <th>Charity Name</th>
+                   <th>Date Donated</th>
+                   <th>Amount Donated</th>
+                </tr>
+            </table>
         </main>
         <footer id="footer">
             <%- include("./template/footer") %>

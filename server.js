@@ -40,6 +40,14 @@ function main() {
     }
   }
 
+
+app.get("/authorization", (req, res) => {
+  if (req.session.user == undefined) {
+    res.status(200).send(false);
+  } else {
+    res.status (200).send(true);
+  }
+})
   
 app.get("/js/index.min.js", (req, res) =>{
   res.sendFile(__dirname + "/node_modules/confetti-js/dist/index.min.js")
@@ -214,6 +222,23 @@ app.get("/getArticle/:id", (req, res) => {
     res.status(200).send(result);
   })
 })
+
+app.get("/getSavedNews", (req, res) => {
+  dtc08db.collection(`userAccounts`).find({
+    email: {$eq: req.session.user}
+  }).toArray((err, result) => {
+    if (err) {throw err}
+    res.status(200).send(result[0].savedNews);
+  })
+})
+
+app.post("/saveArticle/:id", (req, res) => {
+    dtc08db.collection('userAccounts').updateOne(
+      {email: {$eq: req.session.user}},
+      {$push: {savedNews: id}}
+    );
+    res.status(200).send("News article saved to your read later list.");
+  })
 
 app.get("/news", (req, res) => {
   res.render(__dirname + "/public/news.ejs", {

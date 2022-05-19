@@ -136,6 +136,11 @@ select {
   padding: 10px;
 }
 
+#clearConfettiButton {
+  float: right;
+  padding: 10px 10px;
+}
+
 td,
 th {
   height: 70px;

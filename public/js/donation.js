@@ -28,15 +28,10 @@ function displayConfetti() {
     var confetti = new ConfettiGenerator(confettiSettings);
 
     confetti.render();
-
-    let clearConfettiButton = document.createElement("button");
-    clearConfettiButton.innerHTML = "Clear Confetti";
+    $("#clearConfettiButton").show()
     clearConfettiButton.onclick = function () {
-      // confetti.clear()
-      // $(this).hide()
       location.reload();
     };
-    document.body.prepend(clearConfettiButton);
   }
 }
 
@@ -91,6 +86,9 @@ function showTimeline(data) {
 }
 
 async function setup() {
+
+  $("#clearConfettiButton").hide()
+
   await $.ajax({
     type: `GET`,
     url: `http://localhost:5100/getUser`,

@@ -28,18 +28,6 @@ main {
   border: solid black 1px;
 }
 
-.inputContainer {
-  width: 200px;
-}
-
-#amountDonated {
-  border: none;
-}
-
-#amountDonated:focus {
-  outline-width: 0px;
-}
-
 #donationConfetti {
   position: absolute;
   left: 0;

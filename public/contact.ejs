@@ -27,41 +27,43 @@
     </div>
 
     <main>
+        <br><br>
         <h1>Contact Us</h1>
+        <br>
         <div class="formContainer">
-            <form action="/contactUs/submit" method="post">
+            <form action="/contactUs/submit" method="post" class="contactForm">
                 <div class="fieldContainer">
-                    <label for="fname">First Name</label>
+                    <label for="fname" class="formLabel">First Name</label>
                     <input type="text" id="fname" name="firstname" placeholder="Enter your first name" required>
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="lname">Last Name</label>
+                    <label for="lname" class="formLabel">Last Name</label>
                     <input type="text" id="lname" name="lastname" placeholder="Enter your last name" required>
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="email">Email</label>
+                    <label for="email" class="formLabel">Email</label>
                     <input type="text" id="email" name="email" placeholder="Enter your email" required>
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="pnumber">Phone Number</label>
+                    <label for="pnumber" class="formLabel">Phone Number</label>
                     <input type="text" id="pnumber" name="pnumber" placeholder="Enter your phone number">
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="subject">Subject</label>
+                    <label for="subject" class="formLabel">Subject</label>
                     <input type="text" id="subject" name="subject" placeholder="Tell us your subject" required>
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="message">Your Message</label>
+                    <label for="message" class="formLabel">Your Message</label>
                     <textarea id="message" name="message" placeholder="Write your thoughts here" style="height:200px"
                         required></textarea>
                 </div>
-
-                <div class="fieldContainer">
+                <br>
+                <div class="sumbit">
                     <input id="submitButton" type="submit" value="Submit">
                 </div>
 

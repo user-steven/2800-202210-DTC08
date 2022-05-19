@@ -43,7 +43,7 @@ map.events.add("ready", function () {
 //     @author contribute@w3schools.com
 //     @see https://www.w3schools.com/howto/howto_js_slideshow.asp
 
-let slideIndex = 0;
+let newsIndex = 0;
 newsSlides();
 
 function newsSlides() {
@@ -53,14 +53,14 @@ function newsSlides() {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
+  newsIndex++;
+  if (newsIndex > slides.length) {
+    newsIndex = 1;
   }
   for (i = 0; i < pages.length; i++) {
     pages[i].className = pages[i].className.replace(" active", "");
   }
-  slides[slideIndex - 1].style.display = "block";
-  pages[slideIndex - 1].className += " active";
+  slides[newsIndex - 1].style.display = "block";
+  pages[newsIndex - 1].className += " active";
   setTimeout(newsSlides, 3000); // Change image every 3 seconds
 }

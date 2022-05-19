@@ -189,6 +189,8 @@ app.get("/contactUs", (req, res) => {
 app.post("/create_user", function (req, res) {
   registerInfo = req.body;
   registerInfo["isAdmin"] = false;
+  registerInfo["savedNews"] = [];
+  registerInfo["savedConflicts"] = [];
   dtc08db.collection("userAccounts").insertOne(registerInfo);
   console.log(registerInfo);
   return res.redirect("/login");
@@ -243,13 +245,38 @@ app.get("/getSavedNews", (req, res) => {
   })
 })
 
+app.get("/getSavedConflicts", (req, res) => {
+  dtc08db.collection(`userAccounts`).find({
+    email: {$eq: req.session.user}
+  }).toArray((err, result) => {
+    if (err) {throw err}
+    res.status(200).send(result[0].savedConflicts)
+  })
+})
+
 app.post("/saveArticle/:id", (req, res) => {
     dtc08db.collection('userAccounts').updateOne(
       {email: {$eq: req.session.user}},
-      {$push: {savedNews: id}}
+      {$push: {savedNews: req.params.id}}
     );
     res.status(200).send("News article saved to your read later list.");
   })
+
+app.post("/saveConflict/:id", (req, res) => {
+  dtc08db.collection(`userAccounts`).updateOne(
+    {email: {$eq: req.session.user}},
+    {$push: {savedConflicts: req.params.id}}
+  );
+  res.status(200).send("Conflict saved to your watch list.")
+})
+
+app.post("/removeConflict/:id", (req, res) => {
+  dtc08db.collection(`userAccounts`).updateOne(
+    {email : {$eq: req.session.user}},
+    {$pull: {savedConflicts: req.params.id}}
+  )
+  res.status(200).send("Conflict removed from watch list.")
+})
 
 app.get("/news", (req, res) => {
   res.render(__dirname + "/public/news.ejs", {

@@ -22,18 +22,17 @@
     <canvas id="donationConfetti"></canvas>
     <header id="header">
         <%- include("./template/header") %>
-        <button id="clearConfettiButton">Clear Confetti</button>
+            <button id="clearConfettiButton">Clear Confetti</button>
     </header>
     <div id="banner">
         <%- include("./template/banner") %>
     </div>
 
-
-    <h1>Donation History</h1>
+    <br>
     <br>
     <!-- neil -->
     <form onsubmit="event.preventDefault(); populateHistory();" id="insertEventForm">
-        <h2>Fill in Donation Event</h2>
+        <h2>Fill in Donation Event</h2><br>
         <div class="container">
             <div class="row">
                 <div class="col-25">
@@ -70,6 +69,9 @@
 
 
     <main>
+        <br><br><br><br>
+        <h2>Donation History</h2>
+        <br>
         <table id="eventContainer">
             <tr>
                 <th>Charity Name</th>

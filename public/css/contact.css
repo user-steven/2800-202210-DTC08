@@ -64,7 +64,7 @@ footer form input {
 
 @media screen and (max-width: 500px) {
   #submitButton {
-    width: 110%;
+    width: 90%;
     margin-top: 0;
   }
 }

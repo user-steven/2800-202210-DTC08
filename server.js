@@ -236,6 +236,16 @@ app.get("/conflictProfile/:id", (req, res) => {
   })
 })
 
+app.get("/getConflict/:id", (req, res) => {
+  let id = mongoose.Types.ObjectId(req.params.id)
+  dtc08db.collection(`conflicts`).find({
+    _id: {$eq: id}
+  }).toArray((err, result) => {
+    if (err) {throw err}
+    res.send(result);
+  })
+})
+
 app.get("/getArticles/:id", (req, res) => {
   console.log(req.params.id);
   let id = mongoose.Types.ObjectId(req.params.id)

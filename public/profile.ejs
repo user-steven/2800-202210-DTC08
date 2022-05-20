@@ -43,9 +43,9 @@
         <div id="savedConflicts">
             <p>Saved Conflicts: </p>
                 <% for( let i = 0; i < savedConflicts.length; i++ ) { %>
-                    <a href= <%=`/conflictProfile/${savedConflicts[i]}` %> >
-                        <%= savedConflicts[i] %>
-                    </a>
+                    <p class="conflictLink" id=<%= `${savedConflicts[i]}` %>>
+
+                    </p>
                 <% } %>
         </div>
         <form action="/updateUser" method="post" id="userUpdate">

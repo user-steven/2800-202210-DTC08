@@ -1,24 +1,43 @@
 let to_add = ""
 
 async function showNews(data) {
+    to_add = ""
     for(let i = 0; i < data.length; i++) {
-        console.log(data);
         to_add += 
         `<div class="container">
-            <h4><a href="${data[0].articleLink}"><b>${data[0].name}</b></a></h4>
+            <h4><a href="${data[i].articleLink}"><b>${data[i].name}</b></a></h4>
          </div>`
-        jQuery(`#${data[0]._id}`).html(to_add)
+        jQuery(`#${data[i]._id}`).html(to_add)
+    }
+}
+
+async function showConflicts(data) {
+    to_add = ""
+    for(let i = 0; i < data.length; i++) {
+        to_add += 
+        `<div class="container">
+            <h4><a href="/conflictProfile/${data[i]._id}"><b>${data[i].conflictName}</b></a></h4>
+         </div>`
+        jQuery(`#${data[i]._id}`).html(to_add)
     }
 }
 
 async function setup () {
-    to_add = ``;
     let articles = document.getElementsByClassName("newsLink");
     for (let i = 0; i < articles.length; i++) {
         $.ajax({
             type: `GET`,
             url: `http://localhost:5100/getArticle/${articles[i].id}`,
             success: showNews
+        })
+    }
+
+    let conflicts = document.getElementsByClassName("conflictLink")
+    for (let i = 0; i < conflicts.length; i++) {
+        $.ajax({
+            type: `GET`,
+            url: `http://localhost:5100/getConflict/${conflicts[i].id}`,
+            success: showConflicts
         })
     }
 }

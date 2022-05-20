@@ -6,19 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conflict Tracker</title>
-    
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-    <script defer src="js/index.js"></script>
-    <script defer src="js/banner.js"></script>
-    <script defer src="js/header.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="./js/index.js"></script>
+    <script defer src="/js/banner.js"></script>
+    <script defer src="/js/header.js"></script>
+
     <!-- LOAD Stylesheets -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/template/template.css">
-    <link rel="stylesheet" href="css/template/banner.css">
-    <link rel="stylesheet" href="css/template/header.css">
-    <link rel="stylesheet" href="css/template/footer.css">
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/template/template.css">
+    <link rel="stylesheet" href="/css/template/banner.css">
+    <link rel="stylesheet" href="/css/template/header.css">
+    <link rel="stylesheet" href="/css/template/footer.css">
+    <!-- <link rel="stylesheet" href="css/news.css"> -->
 </head>
 
 <body>
@@ -32,53 +34,82 @@
     <div id="mapContainer">
         <div id="map"></div>
     </div>
-    
+
     <main>
-        
-        <h2>Section Heading</h2>
-        <article>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam recusandae, optio amet ex aut aperiam.
-            Incidunt fugit architecto accusamus perspiciatis eligendi consectetur obcaecati vel nam earum nulla maiores,
-            nisi praesentium. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores eveniet corrupti
-            eaque similique id dignissimos reprehenderit nobis nemo repellat at perferendis doloremque numquam, ratione
-            sapiente ipsam animi voluptas ea sit?
-        </article>
+        <!--    Display a slideshow container
+        I found this code on https://www.w3schools.com/
+        @author contribute@w3schools.com
+        @see https://www.w3schools.com/howto/howto_js_slideshow.asp -->
         <br>
-        <h2>Section Heading</h2>
-        <article>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aut? Corporis laudantium suscipit fugit
-            eos consectetur iste debitis nisi modi libero dicta. A reiciendis iusto labore architecto dolorum, et dolor?
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae et accusantium excepturi amet provident
-            quisquam corrupti, expedita quidem magni eius placeat voluptatem dolorum, reprehenderit minus, sit
-            dignissimos sapiente aliquam repudiandae?
-        </article>
+        <h2>Latest Stories</h2>
         <br>
-        <h2>Section Heading</h2>
-        <article>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aut? Corporis laudantium suscipit fugit
-            eos consectetur iste debitis nisi modi libero dicta. A reiciendis iusto labore architecto dolorum, et dolor?
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae et accusantium excepturi amet provident
-            quisquam corrupti, expedita quidem magni eius placeat voluptatem dolorum, reprehenderit minus, sit
-            dignissimos sapiente aliquam repudiandae?
-        </article>
+        <div class="slideshow-container">
+            <div class="newsSlides fade">
+                <div class="numbertext">1 / 3</div>
+                <a href="https://www.nytimes.com/news-event/ukraine-russia"><img
+                        src="https://cdn.vox-cdn.com/thumbor/DQFm2GNhKD2m6MFj9JHgIniUOEI=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/23278679/GettyImages_1238768051.jpg"
+                        style="width:100%">
+                    <div class="text">Ukraine War</div>
+                </a>
+
+            </div>
+
+            <div class="newsSlides fade">
+                <div class="numbertext">2 / 3</div>
+                <a href="https://www.cnn.com/specials/tigray-conflict"><img
+                        src="https://ichef.bbci.co.uk/news/976/cpsprodpb/79F4/production/_119702213_mediaitem119701945.jpg"
+                        style="width:100%">
+                    <div class="text">Ethiopia War</div>
+            </div></a>
+
+
+            <div class="newsSlides fade">
+                <div class="numbertext">3 / 3</div>
+                <a href="https://www.scmp.com/topics/south-china-sea"><img
+                        src="https://cdn.wionews.com/sites/default/files/styles/story_page/public/2020/08/01/152545-south-china-sea-reuters.jpg"
+                        style="width:100%">
+                    <div class="text">South China Sea War</div>
+                </a>
+
+            </div>
+
+        </div>
         <br>
-        <h2>Section Heading</h2>
-        <article>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aut? Corporis laudantium suscipit fugit
-            eos consectetur iste debitis nisi modi libero dicta. A reiciendis iusto labore architecto dolorum, et dolor?
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae et accusantium excepturi amet provident
-            quisquam corrupti, expedita quidem magni eius placeat voluptatem dolorum, reprehenderit minus, sit
-            dignissimos sapiente aliquam repudiandae?
-        </article>
+
+        <div style="text-align:center">
+            <span class="page"></span>
+            <span class="page"></span>
+            <span class="page"></span>
+        </div>
         <br>
-        <h2>Section Heading</h2>
-        <article>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aut? Corporis laudantium suscipit fugit
-            eos consectetur iste debitis nisi modi libero dicta. A reiciendis iusto labore architecto dolorum, et dolor?
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae et accusantium excepturi amet provident
-            quisquam corrupti, expedita quidem magni eius placeat voluptatem dolorum, reprehenderit minus, sit
-            dignissimos sapiente aliquam repudiandae?
-        </article>
+        <div class="background">
+            <h2>Background</h2>
+            <br>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, incidunt nam voluptate dolor maiores
+                quam
+                ratione tenetur in suscipit ipsam facere eligendi laborum. Ducimus ratione reiciendis exercitationem
+                architecto accusantium voluptatem rem minus impedit dolorem debitis! Vero esse nihil quisquam
+                consequuntur
+                eos perspiciatis, quaerat autem porro quas officia optio, ex doloribus culpa quibusdam cumque quasi nemo
+                libero sed nostrum! Enim, voluptate vel. Minima, a laboriosam pariatur officia fugit, dolorum voluptas
+                obcaecati consequuntur molestias quia officiis deleniti itaque? Exercitationem, eveniet. Soluta incidunt
+                consequuntur ipsam inventore eveniet nulla harum repellendus laboriosam tenetur quas. Labore accusantium
+                repellendus quam saepe debitis harum, perferendis praesentium sed.
+            </p>
+            <br>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quae odio animi. Nihil necessitatibus
+                voluptatem aliquam ea molestias tenetur, repellat delectus, modi nesciunt eaque pariatur quas nemo sed?
+                Amet, enim?
+            </p>
+        </div>
+        <br>
+        <br>
+        <h2>Top News</h2>
+        <div id="relatedNewsContainer">
+        </div>
         <br>
     </main>
 

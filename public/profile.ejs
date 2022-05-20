@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Setting</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer src="\js/banner.js"></script>
     <script defer src="js/profile.js"></script>
     <script defer src="js/header.js"></script>
@@ -26,64 +27,43 @@
     </div>
 
     <main>
-        <h1>Profile Page</h1>
         <br>
-        <div class="profile_form">
-            <h3>First Name:</h3>
-            <input type="text" placeholder="Enter your first name" id="fname" name="fname"><br><br>
-            <h3>Last Name:</h3>
-            <input type="text" placeholder="Enter your last name" id="lname" name="lname"><br><br>
-            <h3>Email:</h3>
-            <input type="text" placeholder="Enter your email" id="email" name="email"><br><br>
-            <h3>Password:</h3>
-            <input type="text" placeholder="Enter your password" id="password" name="password"><br><br>
+        <h1>Profile Page</h1>
+        <div class="profileTable">
+            Email: <%= email %>
+
+                <br>
+                <p>Saved News:</p>
+                <% for( let i=0; i < savedNews.length; i++ ) { %>
+                    <p class="newsLink" id=<%=`${savedNews[i]}` %>>
+
+                    </p>
+                    <% } %>
+                        <p>Saved Conflicts: </p>
+                        <% for( let i=0; i < savedConflicts.length; i++ ) { %>
+                            <p class="conflictLink" id=<%=`${savedConflicts[i]}` %>>
+
+                            </p>
+                            <% } %>
+                                <br>
+                                <form action="/updateUser" method="post" id="userUpdate" hidden>
+                                    <div class="profile_form">
+                                        <!-- <h3>Email:</h3>
+                <input type="text" placeholder="Enter your email" id="email" name="email"><br><br> -->
+                                        <!-- <p>New Password:</p> -->
+                                        <input type="text" placeholder="Enter your new password.." id="password"
+                                            name="password">
+                                    </div>
+                                </form>
+                                <button class="changePass">Change Password</button>
+                                <!-- <div class="passButtons" hidden> -->
+                                <div class="wrapper">
+                                    <input class="passButtons" type="submit" value="Cancel" id="cancelChange" hidden>
+                                    <input class="passButtons" type="submit" value="Submit" form="userUpdate" hidden>
+                                </div>
+                                <!-- </div> -->
         </div>
 
-        <h2>Select your regions:</h2>
-        <div class="region_list">
-            <div class="region_container">
-                <input type="checkbox" id="middle_east" name="middle_east" value="Middle East">
-                <label for="middle_east"> Middle East</label>
-            </div>
-            <div class="region_container">
-                <input type="checkbox" id="myanmar" name="myanmar" value="Myanmar">
-                <label for="myanmar"> Myanmar</label>
-            </div>
-            <div class="region_container">
-                <input type="checkbox" id="china" name="china" value="China">
-                <label for="china"> China</label><br>
-            </div>
-            <div class="region_container">
-                <input type="checkbox" id="north_korea" name="north_korea" value="North Korea">
-                <label for="north_korea"> North Korea</label>
-            </div>
-            <div class="region_container">
-                <input type="checkbox" id="ukraine" name="ukraine" value="Ukraine">
-                <label for="ukraine"> Ukraine</label>
-            </div>
-            <div class="region_container">
-                <input type="checkbox" id="afghanistan" name="afghanistan" value="Afghanistan">
-                <label for="afghanistan"> Afghanistan</label><br>
-            </div>
-            <div class="region_container">
-                <input type="checkbox" id="ethiopia" name="ethiopia" value="Ethiopia">
-                <label for="ethiopia"> Ethiopia</label>
-            </div>
-            <div class="region_container">
-                <input type="checkbox" id="iran" name="iran" value="Iran">
-                <label for="iran"> Iran</label>
-            </div>
-            <div class="region_container">
-                <input type="checkbox" id="pakistan" name="pakistan" value="Pakistan">
-                <label for="pakistan"> Pakistan</label>
-            </div>
-
-        </div>
-        <br><br>
-        <div>
-            <input type="submit" value="Edit">
-            <input type="submit" value="Submit">
-        </div>
     </main>
 
     <footer id="footer">

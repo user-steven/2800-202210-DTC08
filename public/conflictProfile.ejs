@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Conflict Tracker</title>
+
+    <!-- J Query Library -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script defer src="/js/conflictProfile.js"></script>
+    <script defer src="/js/banner.js"></script>
+    <script defer src="/js/header.js"></script>
+
+    <link rel="stylesheet" href="/css/template/template.css">
+    <link rel="stylesheet" href="/css/template/banner.css">
+    <link rel="stylesheet" href="/css/template/header.css">
+    <link rel="stylesheet" href="/css/template/footer.css">
+    <link rel="stylesheet" href="/css/conflictProfile.css">
+</head>
+
+<body id="<%= id %>">
+    <header id="header">
+        <%- include("./template/header") %>
+    </header>
+    <div id="banner">
+        <%- include("./template/banner") %>
+    </div>
+    <br><br>
+    <h1>
+        <%= conflictName %>: <%= country %>
+    </h1>
+    <p>
+        <% description %>
+    </p>
+    <button class="bookmark" id="<%= id %>" onclick="watchConflict(this.id);" style="font-size:24px"><i
+            class="fa fa-bookmark-o"></i></button>
+
+    <main>
+
+    </main>
+    <footer id="footer">
+        <%- include("./template/footer") %>
+    </footer>
+</body>
+
+</html>

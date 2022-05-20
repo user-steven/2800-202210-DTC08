@@ -18,27 +18,26 @@
             <input id="home" type="submit" value="" name="home">
         </form>
 
-        <form action="/news" method="get" id="newsButton">
-            <label for="news">News</label>
-            <input id="news" type="submit" value="" name="news">
-        </form>
-
         <form action="/charities" method="get" id="charitiesButton">
             <label for="charities">Charities</label>
             <input id="charities" type="submit" value="" name="charities">
         </form>
 
         <% if (session) { %>
-            <form action="/" method="post" id="logOutButton">
-                <label for="logout">Log Out</label>
-                <input id="logout" type="submit" value="" name="logOut">
-            </form>
-
             <form action="/profile" method="get" id="profileButton">
                 <label for="profile">Profile</label>
                 <input id="profile" type="submit" value="" name="profile">
             </form>
 
+            <form action="/donation" method="get" id="donationButton">
+                <label for="donation">Donation Log</label>
+                <input id="donation" type="submit" value="" name="donation">
+            </form>
+
+            <form action="/" method="post" id="logOutButton">
+                <label for="logout">Log Out</label>
+                <input id="logout" type="submit" value="" name="logOut">
+            </form>
         <% } else {%>
             <form action="/login" method="get" id="logInButton">
                 <label for="login">Log In</label>

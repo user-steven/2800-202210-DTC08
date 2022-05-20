@@ -27,41 +27,43 @@
     </div>
 
     <main>
-        <h1>Profile Page</h1>
         <br>
-        <div id="userInfo">
-            <p>Email: <%= email %></p>
-        </div>
-        <div id="savedNews">
-            <p>Saved News:</p>
-            <% for( let i = 0; i < savedNews.length; i++ ) { %>
-                <p class="newsLink" id=<%= `${savedNews[i]}` %>>
-                    
-                </p>
-            <% } %>
-        </div>
-        <div id="savedConflicts">
-            <p>Saved Conflicts: </p>
-                <% for( let i = 0; i < savedConflicts.length; i++ ) { %>
-                    <p class="conflictLink" id=<%= `${savedConflicts[i]}` %>>
+        <h1>Profile Page</h1>
+        <div class="profileTable">
+            Email: <%= email %>
+
+                <br>
+                <p>Saved News:</p>
+                <% for( let i=0; i < savedNews.length; i++ ) { %>
+                    <p class="newsLink" id=<%=`${savedNews[i]}` %>>
 
                     </p>
-                <% } %>
-        </div>
-        <button id="changePass">Change Password</button>
-        <form action="/updateUser" method="post" id="userUpdate" hidden>
-            <div class="profile_form">
-                <!-- <h3>Email:</h3>
+                    <% } %>
+                        <p>Saved Conflicts: </p>
+                        <% for( let i=0; i < savedConflicts.length; i++ ) { %>
+                            <p class="conflictLink" id=<%=`${savedConflicts[i]}` %>>
+
+                            </p>
+                            <% } %>
+                                <br>
+                                <form action="/updateUser" method="post" id="userUpdate" hidden>
+                                    <div class="profile_form">
+                                        <!-- <h3>Email:</h3>
                 <input type="text" placeholder="Enter your email" id="email" name="email"><br><br> -->
-                <h3>Password:</h3>
-                <input type="text" placeholder="Enter your password" id="password" name="password"><br><br>
-            </div>
-        </form>
-        <br><br>
-        <div id="passButtons" hidden>
-            <input type="submit" value="Cancel" id="cancelChange">
-            <input type="submit" value="Submit" form="userUpdate">
+                                        <!-- <p>New Password:</p> -->
+                                        <input type="text" placeholder="Enter your new password.." id="password"
+                                            name="password">
+                                    </div>
+                                </form>
+                                <button class="changePass">Change Password</button>
+                                <!-- <div class="passButtons" hidden> -->
+                                <div class="wrapper">
+                                    <input class="passButtons" type="submit" value="Cancel" id="cancelChange" hidden>
+                                    <input class="passButtons" type="submit" value="Submit" form="userUpdate" hidden>
+                                </div>
+                                <!-- </div> -->
         </div>
+
     </main>
 
     <footer id="footer">

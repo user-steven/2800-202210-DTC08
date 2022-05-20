@@ -32,7 +32,7 @@ map.events.add("ready", function () {
 
     if (countryName == "ukraine") {
       map.events.add("click", key, () => {
-        window.location.href = "/conflictProfile/russia-ukraine-war";
+        window.location.href = "/conflictProfile/6282894d67554247b5f3d3f1";
       });
     }
   }

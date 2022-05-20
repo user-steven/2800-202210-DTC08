@@ -198,33 +198,49 @@ app.post("/create_user", function (req, res) {
 
 app.post("/updateUser", (req, res) => {
   console.log(req.body);
+  dtc08db.collection("userAccounts").updateOne(
+    {email: {$eq: req.session.user}},
+    {$set: {password: req.body.password}}
+    )
   res.redirect("/profile")
 })
 
 app.get("/profile", authorize, (req, res) => {
-  res.render(__dirname + "/public/profile.ejs", {
-    session: req.session.authenticated,
-  });
+  dtc08db.collection("userAccounts").find({
+    email: {$eq: req.session.user}
+  }).toArray((err, result) => {
+    if (err) throw err
+    res.render(__dirname + "/public/profile.ejs", {
+      session: req.session.authenticated,
+      email: result[0].email,
+      savedNews: result[0].savedNews,
+      savedConflicts: result[0].savedConflicts
+    });
+  })
 });
 
 app.get("/conflictProfile/:id", (req, res) => {
+  let id = mongoose.Types.ObjectId(req.params.id)
   dtc08db.collection(`conflicts`).find({
-    conflictName: {$eq: req.params.id}
+    _id: {$eq: id}
   }).toArray((err, result) => {
     if (err) {throw err}
+    console.log(result);
     res.render(__dirname + "/public/conflictProfile.ejs", {
       session: req.session.authenticated,
       conflictName: result[0].conflictName,
       country: result[0].country,
       description: result[0].description,
-      id: req.params.id
+      id: id
     });
   })
 })
 
 app.get("/getArticles/:id", (req, res) => {
+  console.log(req.params.id);
+  let id = mongoose.Types.ObjectId(req.params.id)
   dtc08db.collection(`conflicts`).find({
-    conflictName: {$eq: req.params.id}
+    _id: {$eq: id}
   }).toArray((err, result) => {
     if (err) {throw err}
     res.status(200).send(result[0].newsArticles);
@@ -270,7 +286,7 @@ app.post("/saveArticle/:id", (req, res) => {
 app.post("/saveConflict/:id", (req, res) => {
   dtc08db.collection(`userAccounts`).updateOne(
     {email: {$eq: req.session.user}},
-    {$push: {savedConflicts: req.params.id}}
+    {$push: {savedConflicts: mongoose.Types.ObjectId(req.params.id)}}
   );
   res.status(200).send("Conflict saved to your watch list.")
 })

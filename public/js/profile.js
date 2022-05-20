@@ -1,5 +1,7 @@
 let to_add = ""
 
+$
+
 async function showNews(data) {
     to_add = ""
     for(let i = 0; i < data.length; i++) {
@@ -40,6 +42,18 @@ async function setup () {
             success: showConflicts
         })
     }
+
+    $("#changePass").click(() => {
+        $("#userUpdate").show()
+        $("#passButtons").show()
+        $("#changePass").hide()
+    })
+
+    $("#cancelChange").click(() => {
+        $("#userUpdate").hide()
+        $("#passButtons").hide()
+        $("#changePass").show()
+    })
 }
 
 $(document).ready(setup)

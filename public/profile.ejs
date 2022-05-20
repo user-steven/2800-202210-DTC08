@@ -48,7 +48,8 @@
                     </p>
                 <% } %>
         </div>
-        <form action="/updateUser" method="post" id="userUpdate">
+        <button id="changePass">Change Password</button>
+        <form action="/updateUser" method="post" id="userUpdate" hidden>
             <div class="profile_form">
                 <!-- <h3>Email:</h3>
                 <input type="text" placeholder="Enter your email" id="email" name="email"><br><br> -->
@@ -57,8 +58,8 @@
             </div>
         </form>
         <br><br>
-        <div>
-            <input type="submit" value="Edit">
+        <div id="passButtons" hidden>
+            <input type="submit" value="Cancel" id="cancelChange">
             <input type="submit" value="Submit" form="userUpdate">
         </div>
     </main>

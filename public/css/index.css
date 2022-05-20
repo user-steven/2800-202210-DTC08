@@ -113,8 +113,7 @@ main {
   margin: 5px;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .container {
@@ -137,7 +136,6 @@ main button {
   #relatedNewsContainer {
     flex-direction: row;
     position: relative;
-    left: 80px;
   }
 }
 

@@ -1,5 +1,5 @@
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 main {
@@ -82,6 +82,11 @@ select {
 
 #submitButton:hover {
   background-color: #6f796f;
+}
+
+h2 {
+  align-self: center;
+  text-align: center;
 }
 
 .container {

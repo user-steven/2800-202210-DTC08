@@ -312,19 +312,27 @@ app.post("/saveNews", (req, res) => {
   )
 })
 
-app.get("/getArticle/:id", (req, res) => {
-  dtc08db.collection(`newsArticles`).find({
-    _id: {$eq: req.params.id}
-  }).toArray((err, result) => {
-    res.status(200).send(result);
-  })
-})
+// app.get("/getArticle/:id", (req, res) => {
+//   dtc08db.collection(`newsArticles`).find({
+//     _id: {$eq: req.params.id}
+//   }).toArray((err, result) => {
+//     res.status(200).send(result);
+//   })
+// })
 
 app.get("/charities", (req, res) => {
   res.render(__dirname + "/public/charity.ejs", {
     session: req.session.authenticated,
   });
 });
+
+app.get("/findTopTenArticles", (req, res)=> {
+  dtc08db.collection("newsArticles").find()
+  .sort({clicks: -1}).limit(10)
+  .toArray((err, result) =>{
+    res.send(result)
+  })
+})
 
 console.log("set up complete");
 }

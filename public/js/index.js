@@ -64,3 +64,40 @@ function newsSlides() {
   pages[newsIndex - 1].className += " active";
   setTimeout(newsSlides, 3000); // Change image every 3 seconds
 }
+
+function getNewsArticles() {
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:5100/findTopTenArticles",
+    success: result => displayTopNewsArticles(result)
+  })
+}
+
+function displayTopNewsArticles(data) {
+  // console.log(data)
+
+  relatedNewsContainer = document.getElementById('relatedNewsContainer')
+
+  for (i = 0; i < data.length; i++) {
+    articleLink = data[i].articleLink
+    articleName = data[i].name
+    articlePublisher = data[i].publisher
+    articleDate = data[i].date
+
+    console.log(`${articleLink} ${articleName}${articlePublisher}${articleDate}`)
+    card =
+      `
+      <div class="news_cards">
+        <div class="container">
+          <h4><a href="${articleLink}"><b>${articleName}</b></a></h4>
+          <p><i>${articlePublisher}</i></p>
+          <p>${articleDate}</p>
+        </div>
+      </div>
+    `
+    relatedNewsContainer.insertAdjacentHTML( 'beforeend', card )
+  }
+}
+
+
+getNewsArticles()

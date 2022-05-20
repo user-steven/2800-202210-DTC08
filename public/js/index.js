@@ -68,7 +68,7 @@ function newsSlides() {
 function getNewsArticles() {
   $.ajax({
     type: "GET",
-    url: "http://localhost:5100/findTopTenArticles",
+    url: "http://conflict-tracker.herokuapp.com/findTopTenArticles",
     success: result => displayTopNewsArticles(result)
   })
 }

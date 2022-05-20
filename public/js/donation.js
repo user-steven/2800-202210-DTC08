@@ -54,7 +54,7 @@ function populateHistory() {
 function insertDonation(name, date, amount) {
   $.ajax({
     type: "POST",
-    url: "http://conflict-tracker.herokuapp.com/insert",
+    url: "https://conflict-tracker.herokuapp.com/insert",
     data: {
       charityName: name,
       dateDonated: date,
@@ -91,7 +91,7 @@ async function setup() {
 
   await $.ajax({
     type: `GET`,
-    url: `http://conflict-tracker.herokuapp.com/getUser`,
+    url: `https://conflict-tracker.herokuapp.com/getUser`,
     success: showTimeline,
   });
 }

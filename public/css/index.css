@@ -114,12 +114,16 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 25px 16px;
+  text-align: center;
 }
 
 main button {
@@ -134,7 +138,7 @@ main button {
 
 @media only screen and (min-width: 500px) {
   #relatedNewsContainer {
-    flex-direction: row;
+    flex-direction: column;
     position: relative;
   }
 }
@@ -166,11 +170,6 @@ h3 {
 
 .news_cards:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.container {
-  padding: 25px 16px;
-  text-align: center;
 }
 
 .relatedNewsContainer {

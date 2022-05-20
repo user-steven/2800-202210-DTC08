@@ -302,9 +302,10 @@ app.post("/saveConflict/:id", (req, res) => {
 })
 
 app.post("/removeConflict/:id", (req, res) => {
-  dtc08db.collection(`userAccounts`).updateOne(
-    {email : {$eq: req.session.user}},
-    {$pull: {savedConflicts: req.params.id}}
+  let id = mongoose.Types.ObjectId(req.params.id)
+  dtc08db.collection(`userAccounts`).findOneAndUpdate(
+    {email: {$eq: req.session.user}},
+    {$pull: {savedConflicts: id}},
   )
   res.status(200).send("Conflict removed from watch list.")
 })

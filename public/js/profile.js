@@ -27,7 +27,7 @@ async function setup() {
   for (let i = 0; i < articles.length; i++) {
     $.ajax({
       type: `GET`,
-      url: `http://conflict-tracker.herokuapp.com/getArticle/${articles[i].id}`,
+      url: `/getArticle/${articles[i].id}`,
       success: showNews,
     });
   }
@@ -36,7 +36,7 @@ async function setup() {
   for (let i = 0; i < conflicts.length; i++) {
     $.ajax({
       type: `GET`,
-      url: `http://conflict-tracker.herokuapp.com/getConflict/${conflicts[i].id}`,
+      url: `/getConflict/${conflicts[i].id}`,
       success: showConflicts,
     });
   }

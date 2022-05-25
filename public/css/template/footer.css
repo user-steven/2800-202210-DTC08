@@ -1,16 +1,26 @@
 footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #C4C4C4;
-    bottom: 0;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #313336;
+  bottom: 0;
+}
 
-  footer form input {
-    background-color: transparent;
-    padding: 3px;
-    border-radius: 15px;
-    box-shadow: none;
-    margin-top: 10px;
-  }
+footer form input {
+  background-color: transparent;
+  padding: 3px;
+  border-radius: 15px;
+  box-shadow: none;
+  margin-top: 10px;
+  color: whitesmoke;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.copyright {
+  color: whitesmoke;
+  font-size: small;
+  cursor: pointer;
+}

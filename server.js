@@ -121,10 +121,13 @@ function main() {
   app.get("/userAccounts", authorize, (req, res) => {
     // console.log(req.session);
     if (req.session.isAdmin) {
-      res.render(__dirname + "/public/account.ejs", {
-        user_data: user_data,
-        session: req.session.authenticated,
-      });
+      dtc08db.collection("userAccounts").find({}).toArray((err, data) => {
+        if (err) {throw err}
+        res.render(__dirname + "/public/account.ejs", {
+          user_data: data,
+          session: req.session.authenticated,
+        });
+      })
     } else {
       res.redirect("/");
     }

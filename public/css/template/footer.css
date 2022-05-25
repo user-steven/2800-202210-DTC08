@@ -16,9 +16,11 @@ footer form input {
   color: whitesmoke;
   border: none;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .copyright {
   color: whitesmoke;
   font-size: small;
+  cursor: pointer;
 }

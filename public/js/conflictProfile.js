@@ -104,7 +104,7 @@ async function setup() {
 
   await $.ajax({
     type: `GET`,
-    url: `/${articlesId}`,
+    url: `/getArticles/${articlesId}`,
     success: showCards,
   });
 }

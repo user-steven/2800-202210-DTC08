@@ -1,55 +1,57 @@
-html, body {
-    background-color: #CFDBD5;
+html,
+body {
+  background-color: #cfdbd5;
 }
 
 .loginTitle {
-    text-align: center;
-    font-weight: 700;
+  text-align: center;
+  font-weight: 700;
 }
 
 .styledButton {
-    display: block;
-    background-color: white;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 8px;
-    border: none;
-    margin: 4px;
-    margin-left: auto;
-    padding: 5px;
-    font-size: 20px;
+  display: block;
+  background-color: white;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  margin: 4px;
+  margin-left: auto;
+  padding: 5px;
+  font-size: 20px;
 }
 
 .styledButton:hover {
-    background: #FFDE07;
+  background: #ffde07;
 }
 
 main .formContainer {
-    margin-top: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-#registerForm, #loginForm {
-    margin-top: 25px;
-    border-radius: 25px;
-    background: #E8EDDF;
-    width: 300px;
-    padding: 10px 20px;
+#registerForm,
+#loginForm {
+  margin-top: 25px;
+  border-radius: 25px;
+  background: #e8eddf;
+  width: 300px;
+  padding: 10px 20px;
 }
 
-input[type=email],
-input[type=password] {
-    font-size: 18px;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+input[type="email"],
+input[type="password"] {
+  font-size: 18px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }

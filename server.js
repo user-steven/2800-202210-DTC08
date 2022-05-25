@@ -87,9 +87,7 @@ function main() {
             req.session.user = req.body.loginEmail;
             req.session.isAdmin = user.isAdmin;
             console.log("login sucessful");
-            res.render(__dirname + "/public/index.ejs", {
-              session: req.session.authenticated,
-            });
+            res.redirect("/profile");
           } else {
             console.log("wrong credentials");
             res.redirect("/login");

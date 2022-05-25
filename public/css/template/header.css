@@ -54,6 +54,10 @@ nav {
   background-color: white;
 }
 
+#buttonContainer form input:hover {
+  background: #ffde07;
+}
+
 /* Menu Button Styling */
 .menu {
   display: flex;

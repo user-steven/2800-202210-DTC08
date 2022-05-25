@@ -9,7 +9,7 @@ main {
 }
 
 body {
-  background-color: #CFDBD5;
+  background-color: #cfdbd5;
 }
 
 .profile_form {
@@ -45,7 +45,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #E8EDDF;
+  text-align: center;
+  background-color: #e8eddf;
 }
 
 .wrapper {

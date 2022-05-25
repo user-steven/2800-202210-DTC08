@@ -103,10 +103,12 @@ nav .menu {
   border-radius: 15px;
   padding: 5px;
   border: none;
+  cursor: pointer;
 }
 
 #buttonContainer form label {
   position: absolute;
+  cursor: pointer;
 }
 
 /* CSS Styling for Larger Sceeens */

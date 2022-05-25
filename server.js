@@ -193,13 +193,23 @@ function main() {
   });
 
   app.post("/create_user", function (req, res) {
-    registerInfo = req.body;
-    registerInfo["isAdmin"] = false;
-    registerInfo["savedNews"] = [];
-    registerInfo["savedConflicts"] = [];
-    dtc08db.collection("userAccounts").insertOne(registerInfo);
-    console.log(registerInfo);
-    return res.redirect("/login");
+    console.log(req.body)
+    dtc08db.collection(`userAccounts`).find({
+      email: {$eq: req.body["email"]}
+    }).toArray((err, data) => {
+      if (err) {throw err}
+      if (data.length > 0) {
+        return res.redirect("/signup");
+      } else {
+        registerInfo = req.body;
+        registerInfo["isAdmin"] = false;
+        registerInfo["savedNews"] = [];
+        registerInfo["savedConflicts"] = [];
+        dtc08db.collection("userAccounts").insertOne(registerInfo);
+        console.log(registerInfo);
+        return res.redirect("/login");
+      }
+    })
   });
 
   app.post("/updateUser", (req, res) => {

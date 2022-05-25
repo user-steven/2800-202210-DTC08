@@ -59,7 +59,6 @@ function main() {
 
   app.post("/", (req, res) => {
     let user;
-
     if (req.body.logOut === "") {
       req.session.authenticated = false;
       req.session.user = undefined;

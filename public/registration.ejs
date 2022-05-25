@@ -21,16 +21,19 @@
         <header id="header">
             <%- include("./template/header") %>
         </header>
-        <div id="banner">
-            <%- include("./template/banner") %>
-        </div>
         <main>
-            <h1>Register</h1>
-            <form id="registerForm" action="/create_user" method="POST">
-                <input type="email" name="email" id="emailRegister" placeholder="enter email" required>
-                <input type="password" name="password" id="passwordRegister" placeholder="enter password" required>
-                <button type="submit" id="registerButton">Register</button>
-            </form>
+            <div class="formContainer">
+                <h1 class="loginTitle">Register</h1>
+
+                <form id="registerForm" action="/create_user" method="POST">
+                    <label for="emailRegister"><b>Email</b></label>
+                    <input type="email" name="email" id="emailRegister" placeholder="enter email" required>
+                    <label for="passwordRegister"><b>Password</b></label>
+                    <input type="password" name="password" id="passwordRegister" placeholder="enter password" required>
+                    <button type="submit" id="registerButton" class="styledButton">Register</button>
+                </form>
+            </div>
+
         </main>
         <footer id="footer">
             <%- include("./template/footer") %>

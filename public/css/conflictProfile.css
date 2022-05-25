@@ -5,6 +5,7 @@
 
 body {
   font-family: Verdana, sans-serif;
+  background-color: #CFDBD5;
 }
 
 .relatedNewsContainer {
@@ -27,6 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #E8EDDF;
 }
 
 .later {

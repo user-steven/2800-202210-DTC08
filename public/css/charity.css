@@ -9,6 +9,14 @@
     margin: 10px;
 }
 
+#charitySearchBar {
+    background-color: #E8EDDF;
+}
+
+body {
+    background-color: #CFDBD5;
+}
+
 main input, main button {
     background-color: #C4C4C4;
     border: none;

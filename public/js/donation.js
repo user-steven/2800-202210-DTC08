@@ -85,6 +85,12 @@ function showTimeline(data) {
   document.getElementById("eventContainer").innerHTML += to_add;
 }
 
+function maxDonationDate() {
+  // const today = new Date.toLocaleDateString("en-ca")
+  const today = new Date().toISOString().split("T")[0]
+  document.getElementById("dateDonated").setAttribute("max", today)
+}
+
 async function setup() {
 
   $("#clearConfettiButton").hide()
@@ -94,6 +100,8 @@ async function setup() {
     url: `/getUser`,
     success: showTimeline,
   });
+
+  maxDonationDate()
 }
 
 jQuery(document).ready(setup);

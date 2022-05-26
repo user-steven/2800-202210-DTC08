@@ -22,7 +22,7 @@ body {
 #searchTerm {
   margin: 10px;
   margin-bottom: 50px;
-  width: 73%;
+  width: 72%;
   padding: 12px;
   border: 1px solid #ccc;
   color: #475c54;
@@ -94,7 +94,7 @@ main {
   }
 
   #searchCharityButton {
-    width: 100%;
+    width: 30%;
     margin-top: 0;
   }
 }

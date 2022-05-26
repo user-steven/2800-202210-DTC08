@@ -81,7 +81,7 @@ function main() {
 
           if (!user) {
             console.log("No email found");
-            return;
+            return res.redirect("/login");
           } else if (user.password === req.body.loginPass) {
             req.session.authenticated = true;
             req.session.user = req.body.loginEmail;

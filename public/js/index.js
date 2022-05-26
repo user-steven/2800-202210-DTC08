@@ -1,3 +1,4 @@
+// Country [Longitude, Latitude]
 const country = {
   Ukraine: [31.1656, 48.3794],
   Libya: [17.2283, 26.3351],
@@ -81,14 +82,16 @@ function newsSlides() {
   setTimeout(newsSlides, 3000); // Change image every 3 seconds
 }
 
-function getNewsArticles() {
-  $.ajax({
+// Grab all news articles from the database and pass it to to a function to display
+async function getNewsArticles() {
+  await $.ajax({
     type: "GET",
     url: "/findTopTenArticles",
     success: result => displayTopNewsArticles(result)
   })
 }
 
+// Display all news articles in user article array
 function displayTopNewsArticles(data) {
   // console.log(data)
 
@@ -113,5 +116,5 @@ function displayTopNewsArticles(data) {
   }
 }
 
-
+// Get news articles
 getNewsArticles()

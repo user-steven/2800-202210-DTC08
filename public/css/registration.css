@@ -9,7 +9,26 @@ body {
   font-weight: 700;
 }
 
-.styledButton {
+.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  line-height: 30px;
+}
+
+.loginButton {
+  /* display: flex; */
+  background-color: #475c54;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.signupButton {
+  /* display: flex; */
   background-color: #475c54;
   color: white;
   padding: 12px;

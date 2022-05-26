@@ -1,6 +1,4 @@
-function loadSkeleton() {
-    $("#banner").load("./template/banner.html")
-}
+
 
 function processCharity(data) {
     charities = data

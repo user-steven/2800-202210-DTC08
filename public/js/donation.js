@@ -86,8 +86,7 @@ function showTimeline(data) {
 }
 
 function maxDonationDate() {
-  // const today = new Date.toLocaleDateString("en-ca")
-  const today = new Date().toISOString().split("T")[0]
+  const today = new Date().toLocaleDateString("en-ca")
   document.getElementById("dateDonated").setAttribute("max", today)
 }
 

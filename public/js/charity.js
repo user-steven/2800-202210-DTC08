@@ -1,5 +1,4 @@
-
-
+//sets the inner html of each charity obtained
 function processCharity(data) {
     charities = data
     for (i=0; i<charities.length; i++) {
@@ -7,9 +6,9 @@ function processCharity(data) {
         let website = charities[i].websiteURL
         document.getElementById("charityList").innerHTML += `<li><a href="${website}">${name}</a></li>`
     }
-    
 }
 
+//obtains a list of charities by search term and category
 async function obtainCharity() {
     $("#charityList").empty()
     let category = document.querySelector("#charityCategories").value
@@ -25,8 +24,8 @@ async function obtainCharity() {
 
 }
 
+//charity page set up
 function setup () {
-    loadSkeleton()
     document.getElementById("searchCharityButton").addEventListener("click", obtainCharity)
 }
 

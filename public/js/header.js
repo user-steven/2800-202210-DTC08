@@ -1,3 +1,4 @@
+//displays or hides the dropdown menu when the user clicks on it
 function toggleDropdown() {
     var x = document.getElementById("dropdownMenu");
     if (x.style.display === "flex") {

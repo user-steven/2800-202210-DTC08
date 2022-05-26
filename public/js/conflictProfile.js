@@ -1,6 +1,7 @@
 var to_add;
 var articlesId;
 
+//obtains whether the user is currently logged in
 async function authorize() {
   var authorized;
   await $.ajax({
@@ -14,6 +15,7 @@ async function authorize() {
   return authorized;
 }
 
+//checks the given route if a duplicate of the id already exists in that list
 async function checkDuplicates(id, route) {
   var authorized = true;
   await $.ajax({
@@ -31,6 +33,7 @@ async function checkDuplicates(id, route) {
   return authorized;
 }
 
+//adds the conflict to the users watch list or removes it if it already exists there
 async function watchConflict(id) {
   if (!(await authorize())) {
     window.alert("Log in first");
@@ -57,6 +60,7 @@ async function watchConflict(id) {
   });
 }
 
+//adds the news article to the users read later list it doesn't already exist there
 async function addToReadLater(id) {
   if (!(await authorize())) {
     window.alert("Log in first");
@@ -77,6 +81,7 @@ async function addToReadLater(id) {
   });
 }
 
+//displays the news articles associated with the conflict
 async function showCards(data) {
   to_add += `<div class="relatedNewsContainer">`;
   for (let i = 0; i < data.length; i++) {
@@ -98,6 +103,7 @@ async function showCards(data) {
   jQuery("#newsContainer").html(to_add);
 }
 
+//setup function called upon page load
 async function setup() {
   to_add = ``;
   articlesId = document.getElementsByTagName("BODY")[0].id;

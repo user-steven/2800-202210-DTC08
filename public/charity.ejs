@@ -32,9 +32,10 @@
     </div>
 
     <main>
+        <br>
         <h1>Charity links</h1>
         <div id="charitySearchBar">
-            <label for="charitySearch">Search for charities:</label>
+            <label for="charitySearch" id="dropdownLable">Search for charities:</label>
             <select id="charityCategories">
                 <option value="1">Animals</option>
                 <option value="2">Arts, Culture, Humanities</option>
@@ -48,7 +49,7 @@
                 <option value="9">Religion</option>
                 <option value="11">Research and Public Policy</option>
             </select>
-            <input type="text" id="searchTerm"placeholder="Ethiopia">
+            <input type="text" id="searchTerm" placeholder="Enter a subject" required>
             <button type="submit" id="searchCharityButton">Search</button>
         </div>
 

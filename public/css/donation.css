@@ -1,5 +1,6 @@
 body {
   font-family: Verdana, Tahoma, sans-serif;
+  background-color: #cfdbd5;
 }
 
 main {
@@ -92,10 +93,13 @@ h2 {
 .container {
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  transition: 0.3s;
   /* justify-content: center; */
   /* align-items: center; */
+  align-self: center;
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e8eddf;
   padding: 20px;
   width: 100%;
 }
@@ -143,7 +147,7 @@ th {
   height: 70px;
   text-align: center;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #475c54;
 }
 
 @media screen and (max-width: 500px) {

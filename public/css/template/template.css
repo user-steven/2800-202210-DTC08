@@ -5,25 +5,30 @@ html {
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    /* some font family would go here too */
-  }
+  margin: 0;
+  padding: 0;
+  /* some font family would go here too */
+}
 
-  body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-  }
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-  h1 {
-    width: 100%;
-    text-align: center;
-  }
+h1 {
+  width: 100%;
+  text-align: center;
+}
 
-  main {
-    display: flex;
-    flex-direction: column;
-  }
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+#footer {
+  flex-shrink: 0;
+}

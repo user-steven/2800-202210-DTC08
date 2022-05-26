@@ -1,12 +1,22 @@
 let to_add = "";
 
-$;
+async function removeNews(button) {
+  $.ajax({
+    type: `POST`,
+    url: `/removeNews/${$(button).attr("id")}`,
+    success: (data) => {
+      window.alert(data);
+      location.reload();
+    },
+  });
+}
 
 async function showNews(data) {
   to_add = "";
   for (let i = 0; i < data.length; i++) {
     to_add += `<div class="container">
             <h4><a href="${data[i].articleLink}"><b>${data[i].name}</b></a></h4>
+            <button class="removeNews" id="${data[i]._id}" onclick="removeNews(this);">Remove</button>
          </div>`;
     jQuery(`#${data[i]._id}`).html(to_add);
   }
@@ -27,7 +37,7 @@ async function setup() {
   for (let i = 0; i < articles.length; i++) {
     $.ajax({
       type: `GET`,
-      url: `https://conflict-tracker.herokuapp.com/getArticle/${articles[i].id}`,
+      url: `/getArticle/${articles[i].id}`,
       success: showNews,
     });
   }
@@ -36,7 +46,7 @@ async function setup() {
   for (let i = 0; i < conflicts.length; i++) {
     $.ajax({
       type: `GET`,
-      url: `https://conflict-tracker.herokuapp.com/getConflict/${conflicts[i].id}`,
+      url: `/getConflict/${conflicts[i].id}`,
       success: showConflicts,
     });
   }

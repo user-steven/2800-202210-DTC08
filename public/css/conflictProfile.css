@@ -5,6 +5,22 @@
 
 body {
   font-family: Verdana, sans-serif;
+  background-color: #cfdbd5;
+}
+
+#description {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  transition: 0.3s;
+  width: 80%;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 25px 16px;
+  line-height: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  background-color: #e8eddf;
 }
 
 .relatedNewsContainer {
@@ -15,6 +31,7 @@ body {
   justify-content: center;
   flex-direction: column;
   position: relative;
+  align-items: center;
 }
 
 .container {
@@ -25,9 +42,11 @@ body {
   margin: 50px;
   padding: 25px 16px;
   line-height: 30px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #e8eddf;
 }
 
 .later {
@@ -61,10 +80,9 @@ body {
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 10%;
-  align-self: flex-start;
+  align-self: center;
   justify-content: center;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border-radius: 7px;
 }
 
 .bookmark:hover {
@@ -74,7 +92,12 @@ body {
 
 @media only screen and (min-width: 500px) {
   #relatedNewsContainer {
-    flex-direction: row;
+    flex-direction: column;
     position: relative;
+  }
+  .container {
+    flex-direction: column;
+    position: relative;
+    text-align: center;
   }
 }

@@ -1,6 +1,6 @@
 const country = {
-  ukraine: [31.1656, 48.3794],
-  Afghanistan: [67.71, 33.9391],
+  Ukraine: [31.1656, 48.3794],
+  Libya: [17.2283, 26.3351],
   Ethiopia: [40.4897, 9.145],
   Mexico: [-99.133209, 19.432608],
   Yemen: [48.5164, 15.5527],
@@ -30,9 +30,25 @@ map.events.add("ready", function () {
 
     map.markers.add(key);
 
-    if (countryName == "ukraine") {
+    if (countryName == "Ukraine") {
       map.events.add("click", key, () => {
         window.location.href = "/conflictProfile/6282894d67554247b5f3d3f1";
+      });
+    } else if (countryName == "Mexico") {
+      map.events.add("click", key, () => {
+        window.location.href = "/conflictProfile/6286dafbea8ab7a4dc96bfe5";
+      });
+    } else if (countryName == "Ethiopia") {
+      map.events.add("click", key, () => {
+        window.location.href = "/conflictProfile/6286dafbea8ab7a4dc96bfe4";
+      });
+    } else if (countryName == "Yemen") {
+      map.events.add("click", key, () => {
+        window.location.href = "/conflictProfile/6286dafbea8ab7a4dc96bfe6";
+      });
+    } else if (countryName == "Libya") {
+      map.events.add("click", key, () => {
+        window.location.href = "/conflictProfile/6286d784ea8ab7a4dc96bfde";
       });
     }
   }
@@ -68,7 +84,7 @@ function newsSlides() {
 function getNewsArticles() {
   $.ajax({
     type: "GET",
-    url: "https://conflict-tracker.herokuapp.com/findTopTenArticles",
+    url: "/findTopTenArticles",
     success: result => displayTopNewsArticles(result)
   })
 }
@@ -83,8 +99,6 @@ function displayTopNewsArticles(data) {
     articleName = data[i].name
     articlePublisher = data[i].publisher
     articleDate = data[i].date
-
-    console.log(`${articleLink} ${articleName}${articlePublisher}${articleDate}`)
     card =
       `
       <div class="news_cards">

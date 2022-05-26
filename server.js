@@ -31,10 +31,8 @@ app.listen(process.env.PORT || 5100, function (err) {
 function main() {
   function authorize(req, res, next) {
     if (req.session.user != undefined) {
-      console.log("User Detected");
       next();
     } else {
-      console.log("No User Detected");
       res.status(200).redirect("/");
     }
   }
@@ -59,7 +57,6 @@ function main() {
 
   app.post("/", (req, res) => {
     let user;
-
     if (req.body.logOut === "") {
       req.session.authenticated = false;
       req.session.user = undefined;
@@ -79,18 +76,15 @@ function main() {
           if (result.length > 0) {
             user = result[0];
           }
-
           if (!user) {
             console.log("No email found");
-            return;
+            return res.redirect("/login");
           } else if (user.password === req.body.loginPass) {
             req.session.authenticated = true;
             req.session.user = req.body.loginEmail;
             req.session.isAdmin = user.isAdmin;
             console.log("login sucessful");
-            res.render(__dirname + "/public/index.ejs", {
-              session: req.session.authenticated,
-            });
+            res.redirect("/profile");
           } else {
             console.log("wrong credentials");
             res.redirect("/login");
@@ -122,12 +116,14 @@ function main() {
   });
 
   app.get("/userAccounts", authorize, (req, res) => {
-    // console.log(req.session);
     if (req.session.isAdmin) {
-      res.render(__dirname + "/public/account.ejs", {
-        user_data: user_data,
-        session: req.session.authenticated,
-      });
+      dtc08db.collection("userAccounts").find({}).toArray((err, data) => {
+        if (err) {throw err}
+        res.render(__dirname + "/public/account.ejs", {
+          user_data: data,
+          session: req.session.authenticated,
+        });
+      })
     } else {
       res.redirect("/");
     }
@@ -194,17 +190,24 @@ function main() {
   });
 
   app.post("/create_user", function (req, res) {
-    registerInfo = req.body;
-    registerInfo["isAdmin"] = false;
-    registerInfo["savedNews"] = [];
-    registerInfo["savedConflicts"] = [];
-    dtc08db.collection("userAccounts").insertOne(registerInfo);
-    console.log(registerInfo);
-    return res.redirect("/login");
+    dtc08db.collection(`userAccounts`).find({
+      email: {$eq: req.body["email"]}
+    }).toArray((err, data) => {
+      if (err) {throw err}
+      if (data.length > 0) {
+        return res.redirect("/signup");
+      } else {
+        registerInfo = req.body;
+        registerInfo["isAdmin"] = false;
+        registerInfo["savedNews"] = [];
+        registerInfo["savedConflicts"] = [];
+        dtc08db.collection("userAccounts").insertOne(registerInfo);
+        return res.redirect("/login");
+      }
+    })
   });
 
   app.post("/updateUser", (req, res) => {
-    console.log(req.body);
     dtc08db
       .collection("userAccounts")
       .updateOne(
@@ -242,7 +245,6 @@ function main() {
         if (err) {
           throw err;
         }
-        console.log(result);
         res.render(__dirname + "/public/conflictProfile.ejs", {
           session: req.session.authenticated,
           conflictName: result[0].conflictName,
@@ -269,7 +271,6 @@ function main() {
   });
 
   app.get("/getArticles/:id", (req, res) => {
-    console.log(req.params.id);
     let id = mongoose.Types.ObjectId(req.params.id);
     dtc08db
       .collection(`conflicts`)
@@ -358,6 +359,15 @@ function main() {
     res.status(200).send("Conflict removed from watch list.");
   });
 
+  app.post("/removeNews/:id", (req, res) => {
+    let id = mongoose.Types.ObjectId(req.params.id);
+    dtc08db.collection("userAccounts").findOneAndUpdate(
+      {email: {$eq: req.session.user}},
+      {$pull: {savedNews: req.params.id}}
+    );
+    res.status(200).send("News Removed from Read Later List");
+  })
+
   app.get("/news", (req, res) => {
     res.render(__dirname + "/public/news.ejs", {
       session: req.session.authenticated,
@@ -397,8 +407,6 @@ function main() {
         res.send(result);
       });
   });
-
-  console.log("set up complete");
 }
 
 mongoose.connect(

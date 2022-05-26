@@ -54,7 +54,7 @@ function populateHistory() {
 function insertDonation(name, date, amount) {
   $.ajax({
     type: "POST",
-    url: "https://conflict-tracker.herokuapp.com/insert",
+    url: "/insert",
     data: {
       charityName: name,
       dateDonated: date,
@@ -65,9 +65,6 @@ function insertDonation(name, date, amount) {
 }
 
 function showTimeline(data) {
-  console.log(data);
-
-  console.log(data);
 
   if (data == `not logged in`) {
     to_add = `log in first`;
@@ -85,15 +82,22 @@ function showTimeline(data) {
   document.getElementById("eventContainer").innerHTML += to_add;
 }
 
+function maxDonationDate() {
+  const today = new Date().toLocaleDateString("en-ca")
+  document.getElementById("dateDonated").setAttribute("max", today)
+}
+
 async function setup() {
 
   $("#clearConfettiButton").hide()
 
   await $.ajax({
     type: `GET`,
-    url: `https://conflict-tracker.herokuapp.com/getUser`,
+    url: `/getUser`,
     success: showTimeline,
   });
+
+  maxDonationDate()
 }
 
 jQuery(document).ready(setup);

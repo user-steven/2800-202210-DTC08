@@ -4,7 +4,6 @@ function loadSkeleton() {
 
 function processCharity(data) {
     charities = data
-    console.log(charities)
     for (i=0; i<charities.length; i++) {
         let name = charities[i].charityName
         let website = charities[i].websiteURL
@@ -22,7 +21,7 @@ async function obtainCharity() {
 
     await $.ajax({
         type: "GET",
-        url: `https://api.data.charitynavigator.org/v2/Organizations?app_id=ca5f22b2&app_key=a8488024fb5d86865fccb647c208c5ab&pageSize=10&search=${searchTerm}&rated=true&categoryID=${category}&sort=RATING%3ADESC`,
+        url: `https://api.data.charitynavigator.org/v2/Organizations?app_id=ca5f22b2&app_key=a8488024fb5d86865fccb647c208c5ab&pageSize=10&search=${searchTerm}&rated=true&categoryID=${category}`,
         success: processCharity 
     })
 

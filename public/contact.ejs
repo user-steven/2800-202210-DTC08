@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script defer src="js/contact.js"></script>
     <script defer src="js/banner.js"></script>
     <script defer src="js/header.js"></script>
 
@@ -33,32 +32,32 @@
         <div class="formContainer">
             <form action="/contactUs/submit" method="post" class="contactForm">
                 <div class="fieldContainer">
-                    <label for="fname" class="formLabel">First Name</label>
+                    <label for="fname" class="formLabel">First Name *</label>
                     <input type="text" id="fname" name="firstname" placeholder="Enter your first name" required>
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="lname" class="formLabel">Last Name</label>
+                    <label for="lname" class="formLabel">Last Name *</label>
                     <input type="text" id="lname" name="lastname" placeholder="Enter your last name" required>
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="email" class="formLabel">Email</label>
-                    <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                    <label for="email" class="formLabel">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>
 
                 <div class="fieldContainer">
                     <label for="pnumber" class="formLabel">Phone Number</label>
-                    <input type="text" id="pnumber" name="pnumber" placeholder="Enter your phone number">
+                    <input type="tel" id="pnumber" name="pnumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="subject" class="formLabel">Subject</label>
+                    <label for="subject" class="formLabel">Subject *</label>
                     <input type="text" id="subject" name="subject" placeholder="Tell us your subject" required>
                 </div>
 
                 <div class="fieldContainer">
-                    <label for="message" class="formLabel">Your Message</label>
+                    <label for="message" class="formLabel">Your Message *</label>
                     <textarea id="message" name="message" placeholder="Write your thoughts here" style="height:200px"
                         required></textarea>
                 </div>

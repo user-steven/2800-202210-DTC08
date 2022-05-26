@@ -5,7 +5,7 @@ async function authorize() {
   var authorized;
   await $.ajax({
     type: `GET`,
-    url: `https://conflict-tracker.herokuapp.com/authorization`,
+    url: `/authorization`,
     success: function (response) {
       authorized = response;
       return;
@@ -18,7 +18,7 @@ async function checkDuplicates(id, route) {
   var authorized = true;
   await $.ajax({
     type: `GET`,
-    url: `https://conflict-tracker.herokuapp.com/${route}`,
+    url: `/${route}`,
     success: function (data) {
       data.filter(function (currentValue) {
         if (currentValue == id) {
@@ -40,7 +40,7 @@ async function watchConflict(id) {
   if (!(await checkDuplicates(id, "getSavedConflicts"))) {
     await $.ajax({
       type: `POST`,
-      url: `https://conflict-tracker.herokuapp.com/removeConflict/${id}`,
+      url: `/removeConflict/${id}`,
       success: function (message) {
         window.alert(message);
       },
@@ -50,7 +50,7 @@ async function watchConflict(id) {
 
   await $.ajax({
     type: `POST`,
-    url: `https://conflict-tracker.herokuapp.com/saveConflict/${id}`,
+    url: `/saveConflict/${id}`,
     success: function (message) {
       window.alert(message);
     },
@@ -70,7 +70,7 @@ async function addToReadLater(id) {
 
   await $.ajax({
     type: `POST`,
-    url: `https://conflict-tracker.herokuapp.com/saveArticle/${id}`,
+    url: `/saveArticle/${id}`,
     success: function (message) {
       window.alert(message);
     },
@@ -82,7 +82,7 @@ async function showCards(data) {
   for (let i = 0; i < data.length; i++) {
     await $.ajax({
       type: `GET`,
-      url: `https://conflict-tracker.herokuapp.com/getArticle/${data[i]}`,
+      url: `/getArticle/${data[i]}`,
       success: function (article) {
         to_add += `<div class="container">
                     <h4><a href="${article[0].articleLink}"><b>${article[0].name}</b></a></h4>
@@ -95,7 +95,7 @@ async function showCards(data) {
     });
   }
   to_add += `</div>`;
-  jQuery("main").html(to_add);
+  jQuery("#newsContainer").html(to_add);
 }
 
 async function setup() {
@@ -104,7 +104,7 @@ async function setup() {
 
   await $.ajax({
     type: `GET`,
-    url: `https://conflict-tracker.herokuapp.com/getArticles/${articlesId}`,
+    url: `/getArticles/${articlesId}`,
     success: showCards,
   });
 }

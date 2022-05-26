@@ -368,6 +368,15 @@ function main() {
     res.status(200).send("Conflict removed from watch list.");
   });
 
+  app.post("/removeNews/:id", (req, res) => {
+    let id = mongoose.Types.ObjectId(req.params.id);
+    dtc08db.collection("userAccounts").findOneAndUpdate(
+      {email: {$eq: req.session.user}},
+      {$pull: {savedNews: id}}
+    );
+    res.status(200).send("News Removed from Read Later List");
+  })
+
   app.get("/news", (req, res) => {
     res.render(__dirname + "/public/news.ejs", {
       session: req.session.authenticated,

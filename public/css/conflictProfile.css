@@ -8,8 +8,19 @@ body {
   background-color: #cfdbd5;
 }
 
-main {
-  margin: 0 60px;
+#description {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  transition: 0.3s;
+  width: 80%;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 25px 16px;
+  line-height: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  background-color: #e8eddf;
 }
 
 .relatedNewsContainer {
@@ -70,8 +81,7 @@ main {
   width: 10%;
   align-self: center;
   justify-content: center;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border-radius: 7px;
 }
 
 .bookmark:hover {

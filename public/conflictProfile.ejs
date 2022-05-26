@@ -32,16 +32,18 @@
     <br><br>
 
     <main>
-    <h1>
-        <%= conflictName %>: <%= country %>
-    </h1>
-    <div id="description">
-        <%- description %>
-    </div>
-    <button class="bookmark" id="<%= id %>" onclick="watchConflict(this.id);" style="font-size:24px"><i
-            class="fa fa-bookmark-o"></i></button>
+        <h1>
+            <%= conflictName %>: <%= country %>
+        </h1>
+        <div id="description">
+            <br>
+            <%- description %>
+                <br><br>
+        </div>
+        <button class="bookmark" id="<%= id %>" onclick="watchConflict(this.id);" style="font-size:24px"><i
+                class="fa fa-bookmark-o"></i></button>
 
-    <div id="newsContainer"></div>
+        <div id="newsContainer"></div>
 
     </main>
     <footer id="footer">

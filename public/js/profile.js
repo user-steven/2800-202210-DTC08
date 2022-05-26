@@ -1,5 +1,6 @@
 let to_add = "";
 
+//removes a news article when the button on the card is clicked
 async function removeNews(button) {
   $.ajax({
     type: `POST`,
@@ -11,6 +12,7 @@ async function removeNews(button) {
   });
 }
 
+//displays the news articles the user has saved to their read later list
 async function showNews(data) {
   to_add = "";
   for (let i = 0; i < data.length; i++) {
@@ -22,6 +24,7 @@ async function showNews(data) {
   }
 }
 
+//displays the conflicts the user has added to their watch list
 async function showConflicts(data) {
   to_add = "";
   for (let i = 0; i < data.length; i++) {
@@ -32,6 +35,7 @@ async function showConflicts(data) {
   }
 }
 
+//setup function called when page is loaded
 async function setup() {
   let articles = document.getElementsByClassName("newsLink");
   for (let i = 0; i < articles.length; i++) {

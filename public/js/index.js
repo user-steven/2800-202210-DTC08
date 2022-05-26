@@ -52,6 +52,7 @@ map.events.add("ready", function () {
       });
     }
   }
+  map.resize()
 });
 
 // News photos gallery

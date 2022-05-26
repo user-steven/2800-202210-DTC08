@@ -10,18 +10,17 @@ function processCharity(data) {
 
 //obtains a list of charities by search term and category
 async function obtainCharity() {
-    $("#charityList").empty()
-    let category = document.querySelector("#charityCategories").value
-    let searchTerm = document.querySelector("#searchTerm").value
-    // console.log(category)
-    // console.log(searchTerm)
+  $("#charityList").empty();
+  let category = document.querySelector("#charityCategories").value;
+  let searchTerm = document.querySelector("#searchTerm").value;
+  // console.log(category)
+  // console.log(searchTerm)
 
-    await $.ajax({
-        type: "GET",
-        url: `https://api.data.charitynavigator.org/v2/Organizations?app_id=ca5f22b2&app_key=a8488024fb5d86865fccb647c208c5ab&pageSize=10&search=${searchTerm}&rated=true&categoryID=${category}`,
-        success: processCharity 
-    })
-
+  await $.ajax({
+    type: "GET",
+    url: `https://api.data.charitynavigator.org/v2/Organizations?app_id=ca5f22b2&app_key=a8488024fb5d86865fccb647c208c5ab&pageSize=10&search=${searchTerm}&rated=true&categoryID=${category}`,
+    success: processCharity,
+  });
 }
 
 //charity page set up
@@ -29,4 +28,4 @@ function setup () {
     document.getElementById("searchCharityButton").addEventListener("click", obtainCharity)
 }
 
-$(document).ready(setup)
+$(document).ready(setup);

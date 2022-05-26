@@ -1,6 +1,6 @@
 const country = {
   Ukraine: [31.1656, 48.3794],
-  Afghanistan: [67.71, 33.9391],
+  Libya: [17.2283, 26.3351],
   Ethiopia: [40.4897, 9.145],
   Mexico: [-99.133209, 19.432608],
   Yemen: [48.5164, 15.5527],
@@ -46,7 +46,7 @@ map.events.add("ready", function () {
       map.events.add("click", key, () => {
         window.location.href = "/conflictProfile/6286dafbea8ab7a4dc96bfe6";
       });
-    } else if (countryName == "Afghanistan") {
+    } else if (countryName == "Libya") {
       map.events.add("click", key, () => {
         window.location.href = "/conflictProfile/6286d784ea8ab7a4dc96bfde";
       });

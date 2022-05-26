@@ -33,9 +33,9 @@
     <h1>
         <%= conflictName %>: <%= country %>
     </h1>
-    <p>
-        <% description %>
-    </p>
+    <div id="description">
+        <%- description %>
+    </div>
     <button class="bookmark" id="<%= id %>" onclick="watchConflict(this.id);" style="font-size:24px"><i
             class="fa fa-bookmark-o"></i></button>
 

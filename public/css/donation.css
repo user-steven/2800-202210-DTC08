@@ -145,7 +145,7 @@ th {
   height: 70px;
   text-align: center;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #475c54;
 }
 
 @media screen and (max-width: 500px) {

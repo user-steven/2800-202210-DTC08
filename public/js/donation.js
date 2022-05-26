@@ -1,6 +1,7 @@
 var confettiElement = document.getElementById("donationConfetti");
 to_add = ``;
 
+//displays the confetti when the user makes a donation over $50.00
 function displayConfetti() {
   amountDonated = parseInt(document.getElementById("amountDonated").value);
   if (amountDonated >= 50) {
@@ -25,6 +26,7 @@ function displayConfetti() {
       respawn: true,
     };
 
+    //the confetti variable!
     var confetti = new ConfettiGenerator(confettiSettings);
 
     confetti.render();
@@ -35,6 +37,7 @@ function displayConfetti() {
   }
 }
 
+//populates variables for an insertion into the donation log database
 function populateHistory() {
   charityName = $("#charityName").val();
   dateDonated = $("#dateDonated").val();
@@ -51,6 +54,7 @@ function populateHistory() {
   insertDonation(charityName, dateDonated, amountDonated);
 }
 
+//inserts the given parameters into the donation log database
 function insertDonation(name, date, amount) {
   $.ajax({
     type: "POST",
@@ -64,6 +68,7 @@ function insertDonation(name, date, amount) {
   });
 }
 
+//displays the events in the donation log database
 function showTimeline(data) {
 
   if (data == `not logged in`) {
@@ -82,11 +87,13 @@ function showTimeline(data) {
   document.getElementById("eventContainer").innerHTML += to_add;
 }
 
+//sets the max donation date to the current day
 function maxDonationDate() {
   const today = new Date().toLocaleDateString("en-ca")
   document.getElementById("dateDonated").setAttribute("max", today)
 }
 
+//setup function called on page load
 async function setup() {
 
   $("#clearConfettiButton").hide()

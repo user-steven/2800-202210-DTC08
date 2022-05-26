@@ -1,12 +1,23 @@
 let to_add = "";
 
-$;
+async function removeNews(button) {
+  console.log($(button).attr(`id`));
+  $.ajax({
+    type: `POST`,
+    url: `/removeNews/${$(button).attr("id")}`,
+    success: (data) => {
+      window.alert(data);
+      location.reload();
+    },
+  });
+}
 
 async function showNews(data) {
   to_add = "";
   for (let i = 0; i < data.length; i++) {
     to_add += `<div class="container">
             <h4><a href="${data[i].articleLink}"><b>${data[i].name}</b></a></h4>
+            <button id="${data[i]._id}" onclick="removeNews(this);">Remove</button>
          </div>`;
     jQuery(`#${data[i]._id}`).html(to_add);
   }

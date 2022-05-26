@@ -76,7 +76,6 @@ function main() {
           if (result.length > 0) {
             user = result[0];
           }
-
           if (!user) {
             console.log("No email found");
             return res.redirect("/login");

@@ -1,7 +1,6 @@
 let to_add = "";
 
 async function removeNews(button) {
-  console.log($(button).attr(`id`));
   $.ajax({
     type: `POST`,
     url: `/removeNews/${$(button).attr("id")}`,

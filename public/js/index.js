@@ -99,8 +99,6 @@ function displayTopNewsArticles(data) {
     articleName = data[i].name
     articlePublisher = data[i].publisher
     articleDate = data[i].date
-
-    console.log(`${articleLink} ${articleName}${articlePublisher}${articleDate}`)
     card =
       `
       <div class="news_cards">

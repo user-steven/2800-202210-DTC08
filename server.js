@@ -31,10 +31,8 @@ app.listen(process.env.PORT || 5100, function (err) {
 function main() {
   function authorize(req, res, next) {
     if (req.session.user != undefined) {
-      console.log("User Detected");
       next();
     } else {
-      console.log("No User Detected");
       res.status(200).redirect("/");
     }
   }
@@ -194,7 +192,6 @@ function main() {
   });
 
   app.post("/create_user", function (req, res) {
-    console.log(req.body)
     dtc08db.collection(`userAccounts`).find({
       email: {$eq: req.body["email"]}
     }).toArray((err, data) => {
@@ -207,14 +204,12 @@ function main() {
         registerInfo["savedNews"] = [];
         registerInfo["savedConflicts"] = [];
         dtc08db.collection("userAccounts").insertOne(registerInfo);
-        console.log(registerInfo);
         return res.redirect("/login");
       }
     })
   });
 
   app.post("/updateUser", (req, res) => {
-    console.log(req.body);
     dtc08db
       .collection("userAccounts")
       .updateOne(
@@ -252,7 +247,6 @@ function main() {
         if (err) {
           throw err;
         }
-        console.log(result);
         res.render(__dirname + "/public/conflictProfile.ejs", {
           session: req.session.authenticated,
           conflictName: result[0].conflictName,
@@ -279,7 +273,6 @@ function main() {
   });
 
   app.get("/getArticles/:id", (req, res) => {
-    console.log(req.params.id);
     let id = mongoose.Types.ObjectId(req.params.id);
     dtc08db
       .collection(`conflicts`)
@@ -416,8 +409,6 @@ function main() {
         res.send(result);
       });
   });
-
-  console.log("set up complete");
 }
 
 mongoose.connect(

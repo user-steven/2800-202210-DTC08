@@ -95,11 +95,15 @@ Conflict Tracker is a web app designed to display various conflicts around the w
     Some of our code was found on https://www.w3schools.com/
     @author contribute@w3schools.com
     @see https://www.w3schools.com/howto/howto_js_slideshow.asp
-    
-    
+    ---
     Used to make confetti
     https://github.com/Agezao/confetti-js
-  
+    
+### References
+    1. banner1.png - https://www.doctorswithoutborders.org/
+    2. bannr2.jpg - https://www.redcross.ca/
+    3. banner3.png - https://www.care-international.org/
+    
 ### Contact Information
 | Name | Email | GitHub |
 | ----------- | ----------- | ----------- |

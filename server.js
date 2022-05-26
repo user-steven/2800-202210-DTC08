@@ -372,7 +372,7 @@ function main() {
     let id = mongoose.Types.ObjectId(req.params.id);
     dtc08db.collection("userAccounts").findOneAndUpdate(
       {email: {$eq: req.session.user}},
-      {$pull: {savedNews: id}}
+      {$pull: {savedNews: req.params.id}}
     );
     res.status(200).send("News Removed from Read Later List");
   })

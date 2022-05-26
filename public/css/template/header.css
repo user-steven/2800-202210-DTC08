@@ -71,6 +71,10 @@ nav .menu {
   margin-right: 10px;
 }
 
+#dropdownMenu .menu {
+  margin-bottom: 10px;
+}
+
 #dropdownMenu {
   position: absolute;
   right: 10px;

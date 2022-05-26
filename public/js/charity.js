@@ -1,11 +1,13 @@
 //sets the inner html of each charity obtained
 function processCharity(data) {
-    charities = data
-    for (i=0; i<charities.length; i++) {
-        let name = charities[i].charityName
-        let website = charities[i].websiteURL
-        document.getElementById("charityList").innerHTML += `<li><a href="${website}">${name}</a></li>`
-    }
+  charities = data;
+  for (i = 0; i < charities.length; i++) {
+    let name = charities[i].charityName;
+    let website = charities[i].websiteURL;
+    document.getElementById(
+      "charityList"
+    ).innerHTML += `<li><a href="${website}">${name}</a></li>`;
+  }
 }
 
 //obtains a list of charities by search term and category
@@ -13,8 +15,6 @@ async function obtainCharity() {
   $("#charityList").empty();
   let category = document.querySelector("#charityCategories").value;
   let searchTerm = document.querySelector("#searchTerm").value;
-  // console.log(category)
-  // console.log(searchTerm)
 
   await $.ajax({
     type: "GET",
@@ -24,8 +24,10 @@ async function obtainCharity() {
 }
 
 //charity page set up
-function setup () {
-    document.getElementById("searchCharityButton").addEventListener("click", obtainCharity)
+function setup() {
+  document
+    .getElementById("searchCharityButton")
+    .addEventListener("click", obtainCharity);
 }
 
 $(document).ready(setup);

@@ -26,7 +26,7 @@
         <% user_data.forEach((user) => { %>
             <li>
                 <%= user.email %> 
-                <% if (user.admin) { %>
+                <% if (user.isAdmin) { %>
                     (admin)
                 <% } %>
             </li>

@@ -119,7 +119,6 @@ function main() {
   });
 
   app.get("/userAccounts", authorize, (req, res) => {
-    // console.log(req.session);
     if (req.session.isAdmin) {
       dtc08db.collection("userAccounts").find({}).toArray((err, data) => {
         if (err) {throw err}

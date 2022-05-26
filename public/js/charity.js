@@ -1,7 +1,3 @@
-function loadSkeleton() {
-  $("#banner").load("./template/banner.ejs");
-}
-
 function processCharity(data) {
   charities = data;
   for (i = 0; i < charities.length; i++) {

@@ -95,7 +95,7 @@ async function showCards(data) {
     });
   }
   to_add += `</div>`;
-  jQuery("main").html(to_add);
+  jQuery("#newsContainer").html(to_add);
 }
 
 async function setup() {

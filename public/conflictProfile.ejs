@@ -30,6 +30,8 @@
         <%- include("./template/banner") %>
     </div>
     <br><br>
+
+    <main>
     <h1>
         <%= conflictName %>: <%= country %>
     </h1>
@@ -39,7 +41,7 @@
     <button class="bookmark" id="<%= id %>" onclick="watchConflict(this.id);" style="font-size:24px"><i
             class="fa fa-bookmark-o"></i></button>
 
-    <main>
+    <div id="newsContainer"></div>
 
     </main>
     <footer id="footer">

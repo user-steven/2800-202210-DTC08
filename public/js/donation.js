@@ -65,9 +65,6 @@ function insertDonation(name, date, amount) {
 }
 
 function showTimeline(data) {
-  console.log(data);
-
-  console.log(data);
 
   if (data == `not logged in`) {
     to_add = `log in first`;

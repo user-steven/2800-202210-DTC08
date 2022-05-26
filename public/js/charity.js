@@ -4,7 +4,6 @@ function loadSkeleton() {
 
 function processCharity(data) {
     charities = data
-    console.log(charities)
     for (i=0; i<charities.length; i++) {
         let name = charities[i].charityName
         let website = charities[i].websiteURL

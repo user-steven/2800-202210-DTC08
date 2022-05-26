@@ -3,3 +3,7 @@
     Some of our code was found on https://www.w3schools.com/
     @author contribute@w3schools.com
     @see https://www.w3schools.com/howto/howto_js_slideshow.asp
+    
+    
+    Used to make confetti
+    https://github.com/Agezao/confetti-js

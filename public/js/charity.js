@@ -2,11 +2,11 @@
 function processCharity(data) {
   charities = data;
   for (i = 0; i < charities.length; i++) {
-    let name = charities[i].charityName;
-    let website = charities[i].websiteURL;
+    let name = charities[i].charityName
+    let website = charities[i].charityNavigatorURL
     document.getElementById(
       "charityList"
-    ).innerHTML += `<li><a href="${website}">${name}</a></li>`;
+    ).innerHTML += `<li><a href="${website}" target="_blank">${name}</a></li>`;
   }
 }
 
@@ -18,16 +18,14 @@ async function obtainCharity() {
 
   await $.ajax({
     type: "GET",
-    url: `https://api.data.charitynavigator.org/v2/Organizations?app_id=ca5f22b2&app_key=a8488024fb5d86865fccb647c208c5ab&pageSize=10&search=${searchTerm}&rated=true&categoryID=${category}`,
-    success: processCharity,
+    url: `https://api.data.charitynavigator.org/v2/Organizations?app_id=ca5f22b2&app_key=a8488024fb5d86865fccb647c208c5ab&pageSize=20&search=${searchTerm}&categoryID=${category}`,
+    success: processCharity
   });
 }
 
 //charity page set up
 function setup() {
-  document
-    .getElementById("searchCharityButton")
-    .addEventListener("click", obtainCharity);
+  document.getElementById("searchCharityButton").addEventListener("click", obtainCharity);
 }
 
 $(document).ready(setup);

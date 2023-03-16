@@ -70,14 +70,7 @@ interactable map to better visualize information.
 - Other Software: None
 ### Third Party APIs
 - https://charity.3scale.net/docs/data-api/reference
-- https://docs.microsoft.com/en-ca/azure/azure-maps/
-### API Keys
-CharityNavigator:
-- Application ID: ca5f22b2
-- Application Keys: a8488024fb5d86865fccb647c208c5ab
-
-Azure Maps:
-- Primary Key: g-8bmjcGR3kIo2GsHB5DCF4_rljQxKjAvE3ILRsmF_Q  
+- https://docs.microsoft.com/en-ca/azure/azure-maps/ 
 ### Installation Orders and Locations
 Installation and locations doesn't matter for this project
 ### Configuration Instructions
